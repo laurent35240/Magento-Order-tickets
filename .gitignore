@@ -1,6 +1,5 @@
 /nbproject/private/
 /app/code/core/
-/app/code/community/
 /app/design/adminhtml/default/default/layout/moneybookers.xml
 /app/design/adminhtml/default/default/layout/downloadable.xml
 /app/design/adminhtml/default/default/layout/giftmessage.xml
@@ -152,3 +151,6 @@
 /var/
 /Laurent_OrderTickets.tar.gz
 /cron.sh
+/app/code/local/
+/app/code/community/Find/
+/app/code/community/Phoenix/
