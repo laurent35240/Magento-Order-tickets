@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_customer_edit>
+        <reference name="customer_edit_tabs">
+            <action method="addTab"><name>customer_tickets</name><block>ordertickets/adminhtml_customer_edit_tab_tickets</block></action>
+        </reference>
+    </adminhtml_customer_edit>
+    <adminhtml_sales_order_view>
+        <reference name="sales_order_tabs">
+            <action method="addTab"><name>order_tickets</name><block>ordertickets/adminhtml_order_view_tab_tickets</block></action>
+        </reference>
+    </adminhtml_sales_order_view>
+</layout>

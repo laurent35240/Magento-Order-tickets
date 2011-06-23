@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : ordertickets.xml
+    Created on : 30 avril 2011, 13:01
+    Author     : laurent
+-->
+<layout version="0.1.0">
+    <ordertickets_chat_view>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/ordertickets.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="ordertickets/order_tabs" name="ordertickets_order_tabs" template="ordertickets/order/tabs.phtml"></block>
+            <block type="ordertickets/chat" name="ordertickets_chat" template="ordertickets/chat.phtml"></block>
+        </reference>
+    </ordertickets_chat_view>
+    
+    <sales_order_view>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/ordertickets.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="ordertickets/order_tabs" name="ordertickets_order_tabs" template="ordertickets/order/tabs.phtml" before="info"></block>
+        </reference>
+    </sales_order_view>
+</layout>

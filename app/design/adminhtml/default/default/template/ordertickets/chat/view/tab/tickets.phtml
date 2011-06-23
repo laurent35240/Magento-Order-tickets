@@ -1,0 +1,61 @@
+<?php
+/**
+ * @see Laurent_OrderTickets_Block_Adminhtml_Chat_View_Tab_Tickets
+ */
+?>
+<?php foreach($this->getTickets() as $ticket): ?>
+<div>
+    <h4>
+        <?php if($ticket->isRequest()): ?>
+            <?php echo $this->__('Message from %s send the', $this->getChat()->getCustomerFirstname() . ' ' . $this->getChat()->getCustomerLastname())?>
+        <?php else: ?>
+            <?php echo $this->__('Answer send the')?>
+        <?php endif; ?>
+        <?php echo Mage::helper('core')->formatDate($ticket->getCreatedAt(), 'full', true)?>
+    </h4>
+    <p>
+        <?php echo nl2br($ticket->getMessage()) ?>
+    </p>
+</div>
+<?php endforeach; ?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4><?php echo $this->__('Add an answer'); ?></h4>
+    </div>
+    <div class="fieldset fieldset-wide">
+        <table cellspacing="0" class="form-list">
+            <tr>
+                <td class="label"><label for="message"><?php echo $this->__('Message')?></label></td>
+                <td class="value"><textarea name="answer[message]" id="message"></textarea></td>
+            </tr>
+            <tr>
+                <td class="label"><label for="status"><?php echo $this->__('Status')?></label></td>
+                <td class="value">
+                    <select name="answer[status]" id="status">
+                        <?php foreach(Mage::helper('ordertickets')->getChatStatuses() as $statusKey => $statusLabel):?>
+                        <option value="<?php echo $statusKey?>" <?php if($statusKey == $this->getChat()->getStatus()): ?>selected="selected"<?php endif; ?>>
+                            <?php echo $statusLabel?>
+                        </option>
+                        <?php endforeach;?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="label"></td>
+                <td class="value f-right">
+                    <input type="hidden" name="answer[chat_id]" value="<?php echo $this->getChat()->getId()?>" />
+                    <button onclick="postAnswer();" class="form-button" type="submit"><span><?php echo $this->__('Send') ?></span></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+function postAnswer()
+{
+    var form = document.getElementById("edit_form");
+    form.action = '<?php echo $this->getPostAnswerUrl()?>';
+    form.submit();
+}
+</script>

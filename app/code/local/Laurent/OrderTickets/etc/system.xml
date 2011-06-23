@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <sales>
+            <groups>
+                <ordertickets translate="label">
+                    <label>Orders tickets</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>70</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <cron_expr translate="label">
+                            <label>Cron frequency</label>
+                            <sort_order>5</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>ordertickets/config_cron</backend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cron_expr>
+                        <cron_recipients translate="label comment">
+                            <label>Cron recipients</label>
+                            <comment>Separate recipients with comma</comment>
+                            <sort_order>10</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cron_recipients>
+                    </fields>
+                </ordertickets>
+            </groups>
+        </sales>
+    </sections>
+</config>

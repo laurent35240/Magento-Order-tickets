@@ -1,0 +1,49 @@
+<?php
+/**
+ * @see Laurent_OrderTickets_Block_Chat
+ */
+
+$_order = $this->getOrder();
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml();?>
+<div class="page-head button-level">
+    <h3><?php echo $this->__('Order #%s - %s', $_order->getRealOrderId(), $_order->getStatusLabel()) ?></h3>
+</div>
+<?php foreach($this->getTickets() as $ticket):?>
+<div class="ticket <?php echo $ticket->getType()?>">
+    <h4>
+        <?php if($ticket->isRequest()) :?>
+        <?php echo $this->__('Your message send the') ?> 
+        <?php else: ?>
+        <?php echo $this->__('Answer from %s send the', Mage::app()->getStore()->getName()) ?> 
+        <?php endif; ?>
+        <?php echo $ticket->getCreatedAtFormated() ?>
+    </h4>
+    <p>
+        <?php echo nl2br($ticket->getMessage()) ?>
+    </p>
+</div>
+<?php endforeach; ?>
+
+<form action="<?php echo $this->getSendTicketPostUrl() ?>" method="post" id="form-send-ticket">
+    <div class="fieldset">
+        <h4 class="legend"><?php echo $this->__('Add a message') ?></h4>
+        <ul class="form-list">
+            <li class="wide">
+                <label for="message" class="required"><em>*</em><?php echo $this->__('Message') ?></label>
+                <div class="input-box">
+                    <textarea name="message" title="<?php echo $this->__('Message') ?>" class="required-entry input-text" cols="60" rows="5"><?php //echo $this->getEscaped($this->getMessage()) ?></textarea>
+                </div>
+            </li>
+        </ul>
+        <input type="hidden" name="order-id" value="<?php echo $this->getOrder()->getId(); ?>" />
+    </div>
+    <div class="buttons-set">
+        <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+        <a href="<?php echo $this->getBackUrl() ?>" class="left">&laquo; <?php echo $this->__('Back to My Orders') ?></a>
+        <button class="button" type="submit"><span><?php echo $this->__('Send') ?></span></button>
+    </div>
+</form>
+<script type="text/javascript">
+    var dataForm = new VarienForm('form-send-ticket', true);
+</script>
