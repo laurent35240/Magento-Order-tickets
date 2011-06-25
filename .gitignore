@@ -151,6 +151,6 @@
 /var/
 /Laurent_OrderTickets.tar.gz
 /cron.sh
-/app/code/local/
 /app/code/community/Find/
 /app/code/community/Phoenix/
+/app/code/local/
