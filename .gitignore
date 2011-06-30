@@ -1,4 +1,4 @@
-/nbproject/private/
+/nbproject/
 /app/code/core/
 /app/design/adminhtml/default/default/layout/moneybookers.xml
 /app/design/adminhtml/default/default/layout/downloadable.xml
@@ -154,3 +154,4 @@
 /app/code/community/Find/
 /app/code/community/Phoenix/
 /app/code/local/
+/.directory
