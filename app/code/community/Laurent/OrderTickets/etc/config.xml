@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Laurent_OrderTickets>
-            <version>1.0.1</version>
+            <version>1.0.3</version>
         </Laurent_OrderTickets>
     </modules>
     <global>
