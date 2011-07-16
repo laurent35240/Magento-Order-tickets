@@ -12,7 +12,7 @@ $installer = $this;
 $installer->startSetup();
 
 $installer->run("
-ALTER TABLE  `ordertickets_chat` ADD  `last_answer_date` DATETIME NULL;
+ALTER TABLE  `{$this->getTable('ordertickets_chat')}` ADD  `last_answer_date` DATETIME NULL;
 ");
 
 $installer->endSetup();
