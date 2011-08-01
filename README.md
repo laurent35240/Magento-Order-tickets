@@ -23,6 +23,15 @@ expression at the same place.
 By default emails are send every day at 2:42 and 14:42  
 [More about cron expression][2]
 
+## Compatibiity
+This extension is compatible with:
+ * Magento CE 1.3, 1.4 and 1.5
+ * Magento PE 1.8, 1.9 and 1.10
+ * Magento EE 1.8, 1.0 and 1.10
+
+## Bug Reports
+If you find a bug, [you can create a ticket][3].
+
 ## More informations
 Check [Magento Connect Order Tickets page][1] for more details.
 
@@ -31,3 +40,4 @@ Order tickets extension is licensed under AFL 3.0 license.
 
 [1]: http://www.magentocommerce.com/magento-connect/laurent35240/extension/7107/order_tickets
 [2]: http://en.wikipedia.org/wiki/Cron#CRON_expression
+[3]: https://github.com/laurent35240/Magento-Order-tickets/issues
