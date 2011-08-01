@@ -28,7 +28,7 @@ This extension is compatible with:
 
  * Magento CE 1.3, 1.4 and 1.5
  * Magento PE 1.8, 1.9 and 1.10
- * Magento EE 1.8, 1.0 and 1.10
+ * Magento EE 1.8, 1.9 and 1.10
 
 ## Bug Reports
 If you find a bug, [you can create a ticket][3].
