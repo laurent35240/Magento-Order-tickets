@@ -148,10 +148,15 @@
 /.htaccess
 /install.php
 /index.php
-/var/
 /Laurent_OrderTickets.tar.gz
 /cron.sh
 /app/code/community/Find/
 /app/code/community/Phoenix/
 /app/code/local/
 /.directory
+/var/cache/
+/var/locks/
+/var/log/
+/var/package/
+/var/session/
+/var/.htaccess

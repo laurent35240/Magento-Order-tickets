@@ -1,0 +1,119 @@
+<_>
+   <form_key>7KTtTuaF61Vj68Yx</form_key>
+   <name>Order_tickets</name>
+   <channel>community</channel>
+   <version_ids>
+      <version_ids>2</version_ids>
+      <version_ids>1</version_ids>
+   </version_ids>
+   <summary>Add ticketing system to orders</summary>
+   <description>Ticketing system to order:
+ - customer can add message to orders
+ - administrator can see thes messages, reply to them and change status of a chat
+ - a cron also exists to send a reminder email to administrator about new messages</description>
+   <license>Academic Free License (AFL 3.0)</license>
+   <license_uri>http://opensource.org/licenses/afl-3.0.php</license_uri>
+   <version>1.0.4</version>
+   <stability>stable</stability>
+   <notes>Fix in sql upgrading script</notes>
+   <authors>
+      <name>
+         <name>Laurent Clouet</name>
+      </name>
+      <user>
+         <user>laurent35240</user>
+      </user>
+      <email>
+         <email>laurent35240@gmail.com</email>
+      </email>
+   </authors>
+   <depends_php_min>5.2.0</depends_php_min>
+   <depends_php_max>6.0.0</depends_php_max>
+   <depends>
+      <package>
+         <name>
+            <name/>
+         </name>
+         <channel>
+            <channel/>
+         </channel>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+         <files>
+            <files>          </files>
+         </files>
+      </package>
+      <extension>
+         <name>
+            <name>Core</name>
+         </name>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+      </extension>
+   </depends>
+   <contents>
+      <target>
+         <target>magelocal</target>
+         <target>magecommunity</target>
+         <target>magedesign</target>
+         <target>magedesign</target>
+         <target>magedesign</target>
+         <target>magedesign</target>
+         <target>mageetc</target>
+         <target>magelocale</target>
+         <target>mageskin</target>
+      </target>
+      <path>
+         <path/>
+         <path>Laurent/OrderTickets</path>
+         <path>adminhtml/default/default/layout/ordertickets.xml</path>
+         <path>adminhtml/default/default/template/ordertickets</path>
+         <path>frontend/default/default/layout/ordertickets.xml</path>
+         <path>frontend/default/default/template/ordertickets</path>
+         <path>modules/Laurent_OrderTickets.xml</path>
+         <path>fr_FR/Laurent_OrderTickets.csv</path>
+         <path>frontend/default/default/css/ordertickets.css</path>
+      </path>
+      <type>
+         <type>file</type>
+         <type>dir</type>
+         <type>file</type>
+         <type>dir</type>
+         <type>file</type>
+         <type>dir</type>
+         <type>file</type>
+         <type>file</type>
+         <type>file</type>
+      </type>
+      <include>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+      </include>
+      <ignore>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+      </ignore>
+   </contents>
+</_>
