@@ -36,7 +36,7 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_View_Tab_Tickets extends Mage_Ad
     }
     
     public function getPostAnswerUrl(){
-        return Mage::getUrl('*/*/answerPost');
+        return $this->getUrl('*/*/answerPost');
     }
 }
 

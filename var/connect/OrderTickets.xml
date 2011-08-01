@@ -1,5 +1,5 @@
 <_>
-   <form_key>7KTtTuaF61Vj68Yx</form_key>
+   <form_key>HCLO0MtSj5JuBtMq</form_key>
    <name>Order_tickets</name>
    <channel>community</channel>
    <version_ids>
@@ -13,9 +13,9 @@
  - a cron also exists to send a reminder email to administrator about new messages</description>
    <license>Academic Free License (AFL 3.0)</license>
    <license_uri>http://opensource.org/licenses/afl-3.0.php</license_uri>
-   <version>1.0.4</version>
+   <version>1.0.5</version>
    <stability>stable</stability>
-   <notes>Fix in sql upgrading script</notes>
+   <notes>Fix for using https in back office</notes>
    <authors>
       <name>
          <name>Laurent Clouet</name>
@@ -44,7 +44,7 @@
             <max/>
          </max>
          <files>
-            <files>          </files>
+            <files>           </files>
          </files>
       </package>
       <extension>

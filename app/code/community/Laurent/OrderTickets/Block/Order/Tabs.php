@@ -32,7 +32,7 @@ class Laurent_OrderTickets_Block_Order_Tabs extends Mage_Core_Block_Template {
      * @return string
      */
     public function getOrderViewLink(){
-        return Mage::getUrl(self::ORDER_VIEW_LINK, array('order_id' => $this->getOrder()->getId()));
+        return $this->getUrl(self::ORDER_VIEW_LINK, array('order_id' => $this->getOrder()->getId()));
     }
     
     /**
@@ -40,7 +40,7 @@ class Laurent_OrderTickets_Block_Order_Tabs extends Mage_Core_Block_Template {
      * @return string
      */
     public function getOrderChatLink(){
-        return Mage::getUrl(self::ORDER_CHAT_LINK, array('order_id' => $this->getOrder()->getId()));
+        return $this->getUrl(self::ORDER_CHAT_LINK, array('order_id' => $this->getOrder()->getId()));
     }
     
     /**

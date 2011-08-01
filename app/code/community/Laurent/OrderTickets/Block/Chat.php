@@ -54,7 +54,7 @@ class Laurent_OrderTickets_Block_Chat extends Mage_Core_Block_Template {
      * @return string
      */
     public function getBackUrl(){
-        return Mage::getUrl('sales/order/history');
+        return $this->getUrl('sales/order/history');
     }
     
     /**
@@ -62,7 +62,7 @@ class Laurent_OrderTickets_Block_Chat extends Mage_Core_Block_Template {
      * @return string
      */
     public function getSendTicketPostUrl(){
-        return Mage::getUrl('*/*/ticketPost');
+        return $this->getUrl('*/*/ticketPost');
     }
     
 }
