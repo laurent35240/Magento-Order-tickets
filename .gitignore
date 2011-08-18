@@ -160,3 +160,4 @@
 /var/package/
 /var/session/
 /var/.htaccess
+/app/etc/modules/Mage_Persistent.xml

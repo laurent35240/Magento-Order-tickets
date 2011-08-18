@@ -26,9 +26,9 @@ By default emails are send every day at 2:42 and 14:42
 ## Compatibiity
 This extension is compatible with:
 
- * Magento CE 1.3, 1.4 and 1.5
- * Magento PE 1.8, 1.9 and 1.10
- * Magento EE 1.8, 1.9 and 1.10
+ * Magento CE 1.3, 1.4, 1.5 and 1.6
+ * Magento PE 1.8, 1.9, 1.10 and 1.11
+ * Magento EE 1.8, 1.9, 1.10 and 1.11
 
 ## Bug Reports
 If you find a bug, [you can create a ticket][3].
