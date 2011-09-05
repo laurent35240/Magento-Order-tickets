@@ -1,21 +1,21 @@
 <_>
-   <form_key>HCLO0MtSj5JuBtMq</form_key>
+   <form_key>j1Z5YWUatGWwsmL2</form_key>
    <name>Order_tickets</name>
    <channel>community</channel>
    <version_ids>
       <version_ids>2</version_ids>
       <version_ids>1</version_ids>
    </version_ids>
-   <summary>Add ticketing system to orders</summary>
+   <summary>Design and skin files moved from default to base package</summary>
    <description>Ticketing system to order:
  - customer can add message to orders
  - administrator can see thes messages, reply to them and change status of a chat
  - a cron also exists to send a reminder email to administrator about new messages</description>
    <license>Academic Free License (AFL 3.0)</license>
    <license_uri>http://opensource.org/licenses/afl-3.0.php</license_uri>
-   <version>1.0.5</version>
+   <version>1.0.6</version>
    <stability>stable</stability>
-   <notes>Fix for using https in back office</notes>
+   <notes>Design and skin files moved from default to base package</notes>
    <authors>
       <name>
          <name>Laurent Clouet</name>
@@ -44,7 +44,7 @@
             <max/>
          </max>
          <files>
-            <files>            </files>
+            <files>             </files>
          </files>
       </package>
       <extension>
@@ -76,11 +76,11 @@
          <path>Laurent/OrderTickets</path>
          <path>adminhtml/default/default/layout/ordertickets.xml</path>
          <path>adminhtml/default/default/template/ordertickets</path>
-         <path>frontend/default/default/layout/ordertickets.xml</path>
-         <path>frontend/default/default/template/ordertickets</path>
+         <path>frontend/base/default/layout/ordertickets.xml</path>
+         <path>frontend/base/default/template/ordertickets</path>
          <path>modules/Laurent_OrderTickets.xml</path>
          <path>fr_FR/Laurent_OrderTickets.csv</path>
-         <path>frontend/default/default/css/ordertickets.css</path>
+         <path>frontend/base/default/css/ordertickets.css</path>
       </path>
       <type>
          <type>file</type>
