@@ -1,0 +1,12 @@
+Creation of new ticket in BO:
+
+ - First step after clicking on button Create New, will be to select for which
+   order this ticket will be related too.
+ - Possibility of creating new ticket while viewing an order in BO
+ - Customer data will then be prefilled with the one from the order. But it can
+   be edited if needed
+ - Status will be put by default to Open but it can be changed if needed
+ - We can set what type of message we want to register: Message from customer or
+   message from the shop. By default this option will be put on message from the
+   shop
+ - New created message will not have to be reported by cron
