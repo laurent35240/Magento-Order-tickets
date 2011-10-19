@@ -130,6 +130,7 @@
 /LICENSE.html
 /mage
 /.htaccess
+/.htaccess.sample
 /install.php
 /index.php
 /Laurent_OrderTickets.tar.gz
@@ -226,3 +227,4 @@
 /skin/frontend/base/default/favicon.ico
 /skin/frontend/base/default/js/
 /skin/frontend/base/default/css/widgets.css
+/app/design/adminhtml/default/default/template/resetforgottenpassword.phtml
