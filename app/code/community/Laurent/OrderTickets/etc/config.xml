@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Laurent_OrderTickets>
-            <version>1.0.6</version>
+            <version>1.0.7</version>
         </Laurent_OrderTickets>
     </modules>
     <global>
@@ -74,17 +74,6 @@
                   </ordertickets>
               </updates>
         </layout>
-        <menu>
-            <sales>
-                <children>
-                    <ordertickets translate="title">
-                        <title>Order tickets</title>
-                        <action>ordertickets/adminhtml_chat</action>
-                        <sort_order>600</sort_order>
-                    </ordertickets>
-                </children>
-            </sales>
-        </menu>
         <translate>
             <modules>
                 <Laurent_OrderTickets>
