@@ -32,6 +32,12 @@ This extension is compatible with:
  * Magento PE 1.8, 1.9, 1.10 and 1.11
  * Magento EE 1.8, 1.9, 1.10 and 1.11
 
+## Locales
+Extension available in:
+
+ * English
+ * French
+
 ## Bug Reports
 If you find a bug, [you can create a ticket][3].
 
