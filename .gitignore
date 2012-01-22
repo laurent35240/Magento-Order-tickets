@@ -130,6 +130,7 @@
 /LICENSE.html
 /mage
 /.htaccess
+/.htaccess.sample
 /install.php
 /index.php
 /Laurent_OrderTickets.tar.gz
