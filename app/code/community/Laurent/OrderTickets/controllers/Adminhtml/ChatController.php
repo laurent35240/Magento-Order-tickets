@@ -16,7 +16,6 @@ class Laurent_OrderTickets_Adminhtml_ChatController extends Mage_Adminhtml_Contr
     
     public function indexAction(){
         $this->_initAction();
-        $this->_addContent($this->getLayout()->createBlock('ordertickets/adminhtml_chat'));
         $this->renderLayout();
     }
     
@@ -31,8 +30,6 @@ class Laurent_OrderTickets_Adminhtml_ChatController extends Mage_Adminhtml_Contr
         if($chat->getId()){
             Mage::register('ordertickets_chat', $chat);
             $this->_initAction();
-            $this->_addContent($this->getLayout()->createBlock('ordertickets/adminhtml_chat_view'));
-            $this->_addLeft($this->getLayout()->createBlock('ordertickets/adminhtml_chat_view_tabs'));
             $this->renderLayout();
         }
         else{
