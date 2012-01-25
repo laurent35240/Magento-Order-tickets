@@ -2,12 +2,18 @@
 <layout>
     <adminhtml_customer_edit>
         <reference name="customer_edit_tabs">
-            <action method="addTab"><name>customer_tickets</name><block>ordertickets/adminhtml_customer_edit_tab_tickets</block></action>
+            <action method="addTab">
+                <name>customer_tickets</name>
+                <block>ordertickets/adminhtml_customer_edit_tab_tickets</block>
+            </action>
         </reference>
     </adminhtml_customer_edit>
     <adminhtml_sales_order_view>
         <reference name="sales_order_tabs">
-            <action method="addTab"><name>order_tickets</name><block>ordertickets/adminhtml_order_view_tab_tickets</block></action>
+            <action method="addTab">
+                <name>order_tickets</name>
+                <block>ordertickets/adminhtml_order_view_tab_tickets</block>
+            </action>
         </reference>
     </adminhtml_sales_order_view>
     <ordertickets_adminhtml_chat_index>
@@ -22,11 +28,29 @@
         <reference name="left">
             <block type="ordertickets/adminhtml_chat_view_tabs" name="chat_view_tabs">
                 <block type="ordertickets/adminhtml_chat_view_tab_tickets" name="chat_view_tab_tickets" template="ordertickets/chat/view/tab/tickets.phtml"></block>
-                <action method="addTab"><name>chat_view_tab_main</name><block>ordertickets/adminhtml_chat_view_tab_main</block></action>
-                <action method="addTab"><name>chat_view_tab_tickets</name><block>chat_view_tab_tickets</block></action>
+                <action method="addTab">
+                    <name>chat_view_tab_main</name>
+                    <block>ordertickets/adminhtml_chat_view_tab_main</block>
+                </action>
+                <action method="addTab">
+                    <name>chat_view_tab_tickets</name>
+                    <block>chat_view_tab_tickets</block>
+                </action>
             </block>
         </reference>
     </ordertickets_adminhtml_chat_view>
     <ordertickets_adminhtml_chat_new>
+        <reference name="content">
+            <block type="ordertickets/adminhtml_chat_new" name="chat_new">
+                <block type="ordertickets/adminhtml_chat_new_form" template="ordertickets/chat/new/form.phtml" name="form">
+                    <block type="ordertickets/adminhtml_chat_new_order" template="ordertickets/chat/new/abstract.phtml" name="order">
+                        <block type="ordertickets/adminhtml_chat_new_order_grid" name="grid" />
+                    </block>
+                </block>
+            </block>
+        </reference>
     </ordertickets_adminhtml_chat_new>
+    <ordertickets_adminhtml_chat_loadordergrid>
+        <block type="ordertickets/adminhtml_chat_new_order_grid" name="grid" output="toHtml" />
+    </ordertickets_adminhtml_chat_loadordergrid>
 </layout>

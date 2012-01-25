@@ -141,6 +141,14 @@ class Laurent_OrderTickets_Adminhtml_ChatController extends Mage_Adminhtml_Contr
         $this->renderLayout();
     }
     
+    /**
+     * Rendering order grid for creating new ordertickets 
+     */
+    public function loadOrderGridAction(){
+        $this->loadLayout(false);
+        $this->renderLayout();
+    }
+    
 }
 
 ?>
