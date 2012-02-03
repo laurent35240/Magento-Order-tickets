@@ -12,20 +12,19 @@
  * Description of Grid
  *
  */
-class Laurent_OrderTickets_Block_Adminhtml_Chat_New_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid {
+class Laurent_OrderTickets_Block_Adminhtml_Chat_Create_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid {
     
     public function __construct()
     {
         parent::__construct();
-        $this->setId('ordertickets_chat_new_order_grid');
-        //$this->setRowClickCallback('order.selectCustomer.bind(order)');
+        $this->setId('ordertickets_chat_create_order_grid');
         $this->setUseAjax(true);
         $this->setDefaultSort('entity_id');
     }
     
     /**
      * Preparing colllectio of orders
-     * @return Laurent_OrderTickets_Block_Adminhtml_Chat_New_Order_Grid
+     * @return Laurent_OrderTickets_Block_Adminhtml_Chat_Create_Order_Grid
      */
     protected function _prepareCollection()
     {
@@ -36,7 +35,7 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_New_Order_Grid extends Mage_Admi
     
     /**
      * Columns of order Grid
-     * @return Laurent_OrderTickets_Block_Adminhtml_Chat_New_Order_Grid
+     * @return Laurent_OrderTickets_Block_Adminhtml_Chat_Create_Order_Grid
      */
     protected function _prepareColumns()
     {
@@ -100,9 +99,22 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_New_Order_Grid extends Mage_Admi
         return parent::_prepareColumns();
     }
     
+    /**
+     * Url of Grid for reloading it with Ajax
+     * @return string
+     */
     public function getGridUrl()
     {
         return $this->getUrl('*/*/loadOrderGrid');
+    }
+    
+    /**
+     * Url when clicking on a row
+     * @param Mage_Sales_Model8order $order order of the row
+     * @return string
+     */
+    public function getRowUrl($order){
+        return $this->getUrl('*/*/checkOrder', array('order_id' => $order->getId()));
     }
 }
 

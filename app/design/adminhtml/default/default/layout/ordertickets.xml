@@ -39,18 +39,18 @@
             </block>
         </reference>
     </ordertickets_adminhtml_chat_view>
-    <ordertickets_adminhtml_chat_new>
+    <ordertickets_adminhtml_create_index>
         <reference name="content">
-            <block type="ordertickets/adminhtml_chat_new" name="chat_new">
-                <block type="ordertickets/adminhtml_chat_new_form" template="ordertickets/chat/new/form.phtml" name="form">
-                    <block type="ordertickets/adminhtml_chat_new_order" template="ordertickets/chat/new/abstract.phtml" name="order">
-                        <block type="ordertickets/adminhtml_chat_new_order_grid" name="grid" />
+            <block type="ordertickets/adminhtml_chat_create" name="chat_create">
+                <block type="ordertickets/adminhtml_chat_create_form" template="ordertickets/chat/create/form.phtml" name="form">
+                    <block type="ordertickets/adminhtml_chat_create_order" template="ordertickets/chat/create/abstract.phtml" name="order">
+                        <block type="ordertickets/adminhtml_chat_create_order_grid" name="grid" />
                     </block>
                 </block>
             </block>
         </reference>
-    </ordertickets_adminhtml_chat_new>
-    <ordertickets_adminhtml_chat_loadordergrid>
-        <block type="ordertickets/adminhtml_chat_new_order_grid" name="grid" output="toHtml" />
-    </ordertickets_adminhtml_chat_loadordergrid>
+    </ordertickets_adminhtml_create_index>
+    <ordertickets_adminhtml_create_loadordergrid>
+        <block type="ordertickets/adminhtml_chat_create_order_grid" name="grid" output="toHtml" />
+    </ordertickets_adminhtml_create_loadordergrid>
 </layout>

@@ -12,13 +12,13 @@
  * Description of New
  *
  */
-class Laurent_OrderTickets_Block_Adminhtml_Chat_New extends Mage_Adminhtml_Block_Widget_Form_Container{
+class Laurent_OrderTickets_Block_Adminhtml_Chat_Create extends Mage_Adminhtml_Block_Widget_Form_Container{
     
     public function __construct()
     {
         $this->_controller = 'adminhtml_chat';
         $this->_blockGroup = 'ordertickets';
-        $this->_mode = 'new';
+        $this->_mode = 'create';
         parent::__construct();
         
         $this->_removeButton('save');
@@ -31,6 +31,14 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_New extends Mage_Adminhtml_Block
      */
     public function getHeaderText(){
         return $this->__('Create new order tickets');
+    }
+    
+    /**
+     * Url to go back to grid of order tickets
+     * @return string
+     */
+    public function getBackUrl() {
+        return $this->getUrl('*/adminhtml_chat/');
     }
     
 }

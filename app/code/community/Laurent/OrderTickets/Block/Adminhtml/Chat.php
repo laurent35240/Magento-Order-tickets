@@ -23,6 +23,11 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat extends Mage_Adminhtml_Block_Wid
         $this->_blockGroup = 'ordertickets';
         parent::__construct();
     }
+    
+    public function getCreateUrl()
+    {
+        return $this->getUrl('*/adminhtml_create');
+    }
 }
 
 ?>

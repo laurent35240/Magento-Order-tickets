@@ -12,7 +12,7 @@
  * Description of Order
  *
  */
-class Laurent_OrderTickets_Block_Adminhtml_Chat_New_Order extends Mage_Adminhtml_Block_Widget{
+class Laurent_OrderTickets_Block_Adminhtml_Chat_Create_Order extends Mage_Adminhtml_Block_Widget{
     
     /**
      * Header text for order grid

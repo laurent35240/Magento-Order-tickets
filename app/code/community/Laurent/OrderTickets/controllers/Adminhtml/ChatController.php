@@ -12,7 +12,7 @@
  * Description of ChatController
  *
  */
-class Laurent_OrderTickets_Adminhtml_ChatController extends Mage_Adminhtml_Controller_Action {
+class Laurent_OrderTickets_Adminhtml_ChatController extends Laurent_OrderTickets_Controller_Adminhtml_Chat {
     
     public function indexAction(){
         $this->_initAction();
@@ -117,38 +117,6 @@ class Laurent_OrderTickets_Adminhtml_ChatController extends Mage_Adminhtml_Contr
         
         $this->getResponse()->setBody($this->getLayout()->createBlock('ordertickets/adminhtml_customer_edit_tab_tickets')->toHtml());
     }
-
-    /**
-     * Initialize action
-     *
-     * @return Mage_Adminhtml_Controller_Action
-     */
-    protected function _initAction()
-    {
-        $this->loadLayout()
-            ->_setActiveMenu('sales/ordertickets')
-            ->_addBreadcrumb($this->__('Sales'), $this->__('Sales'))
-            ->_addBreadcrumb($this->__('Order tickets'), $this->__('Order tickets'));
-        return $this;
-    }
-    
-    /**
-     * Create a new Chat Action
-     */
-    public function newAction()
-    {
-        $this->_initAction();
-        $this->renderLayout();
-    }
-    
-    /**
-     * Rendering order grid for creating new ordertickets 
-     */
-    public function loadOrderGridAction(){
-        $this->loadLayout(false);
-        $this->renderLayout();
-    }
-    
 }
 
 ?>
