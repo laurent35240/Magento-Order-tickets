@@ -229,3 +229,5 @@
 /skin/frontend/base/default/css/widgets.css
 /app/design/adminhtml/default/default/template/resetforgottenpassword.phtml
 /1.6.1.0-1.6.2.0.diff
+/app/code/community/HM/
+/app/etc/modules/HM_DeveloperToolbar.xml

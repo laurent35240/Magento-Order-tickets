@@ -33,9 +33,8 @@ class Laurent_OrderTickets_Adminhtml_CreateController extends Laurent_OrderTicke
     /**
      * Check if we can create order tickets for required order 
      */
-    public function checkOrderAction() {
-        $session = Mage::getSingleton('core/session');
-        /* @var $session Mage_Core_Model_Session */
+    public function stepTwoAction() {
+        $session = $this->_getSession();
         
         try {
             //Checking if we receive an order id
@@ -66,9 +65,33 @@ class Laurent_OrderTickets_Adminhtml_CreateController extends Laurent_OrderTicke
                 return false;
             }
             
+            //Displaying form
+            Mage::register('chat_order_id', $orderId);
+            $this->_initAction();
+            $this->renderLayout();
+            
         } catch (Mage_Core_Exception $e) {
             $message = $this->__("Error while creating new order tickets: %s", $e->getMessage());       
             $session->addError($message);
+            $this->_redirect('*/adminhtml_chat');
+        }
+    }
+    
+    /**
+     * Processing data to save
+     */
+    public function saveAction(){
+        $session = $this->_getSession();
+        
+        try {
+            $postData = $this->getRequest()->getPost();
+            if (!$postData) {
+                $exceptionMsg = $this->__('There is no data to save.');
+                throw new Mage_Core_Exception($exceptionMsg);
+            }
+        } catch (Mage_Core_Exception $e) {
+            $errorMesage = $this->__("Error while creating new order tickets: %s", $e->getMessage());
+            $session->addError($errorMesage);
             $this->_redirect('*/adminhtml_chat');
         }
     }

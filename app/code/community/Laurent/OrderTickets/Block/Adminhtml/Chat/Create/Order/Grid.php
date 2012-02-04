@@ -114,7 +114,7 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_Create_Order_Grid extends Mage_A
      * @return string
      */
     public function getRowUrl($order){
-        return $this->getUrl('*/*/checkOrder', array('order_id' => $order->getId()));
+        return $this->getUrl('*/*/stepTwo', array('order_id' => $order->getId()));
     }
 }
 

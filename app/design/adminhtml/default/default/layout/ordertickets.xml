@@ -53,4 +53,9 @@
     <ordertickets_adminhtml_create_loadordergrid>
         <block type="ordertickets/adminhtml_chat_create_order_grid" name="grid" output="toHtml" />
     </ordertickets_adminhtml_create_loadordergrid>
+    <ordertickets_adminhtml_create_steptwo>
+        <reference name="content">
+            <block type="ordertickets/adminhtml_chat_create_steptwo" name="chat_create_steptwo"></block>
+        </reference>
+    </ordertickets_adminhtml_create_steptwo>
 </layout>
