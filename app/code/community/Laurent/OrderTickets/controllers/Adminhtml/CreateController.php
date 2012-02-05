@@ -39,19 +39,7 @@ class Laurent_OrderTickets_Adminhtml_CreateController extends Laurent_OrderTicke
         try {
             //Checking if we receive an order id
             $orderId = (int) $this->getRequest()->getParam('order_id');
-            if (!$orderId) {
-                $message = $this->__('No order selected for creating new order tickets.');
-                throw new Mage_Core_Exception($message);
-            }
-            
-            //Checking if order exists
-            $order = Mage::getModel('sales/order');
-            /* @var $order Mage_Sales_Model_Order */
-            $order->load($orderId);
-            if(!$order->getId()){
-                $message = $this->__('Order not found.');
-                throw new Mage_Core_Exception($message);
-            }
+            $this->_checkOrderId($orderId);
             
             //Checking if there is already started order chat for this order
             //If chat is found we redirect then to chat edit page
@@ -84,16 +72,65 @@ class Laurent_OrderTickets_Adminhtml_CreateController extends Laurent_OrderTicke
         $session = $this->_getSession();
         
         try {
-            $postData = $this->getRequest()->getPost();
+            $request = $this->getRequest();
+            $postData = $request->getPost();
             if (!$postData) {
                 $exceptionMsg = $this->__('There is no data to save.');
                 throw new Mage_Core_Exception($exceptionMsg);
             }
+            
+            $chatData = $request->getParam('chat');
+            $ticketData = $request->getParam('ticket');
+            
+            $orderId = (isset($chatData['order_id']) ? $chatData['order_id'] : null);
+            $this->_checkOrderId($orderId);
+            
+            $chat = Mage::getModel('ordertickets/chat');
+            /* @var $chat Laurent_OrderTickets_Model_Chat */
+            $chat->setData($chatData);
+            $chat->save();
+            
+            $ticketData['chat_id'] = $chat->getId();
+            $ticket = Mage::getModel('ordertickets/ticket');
+            /* @var $ticket Laurent_OrderTickets_Model_Ticket */
+            $ticket->setData($ticketData);
+            $ticket->save();
+            
+            $successMessage = $this->__('Ticket has been correctly saved.');
+            $session->addSuccess($successMessage);
+            $this->_redirect('*/adminhtml_chat');
+            return false;
+            
         } catch (Mage_Core_Exception $e) {
             $errorMesage = $this->__("Error while creating new order tickets: %s", $e->getMessage());
             $session->addError($errorMesage);
             $this->_redirect('*/adminhtml_chat');
         }
+    }
+    
+    /**
+     * Check if order id is correct and correspond to an order
+     * @param int $orderId
+     * @return boolean true if it is ok
+     * @throws Mage_Core_Exception If order id is incorrect
+     */
+    protected function _checkOrderId($orderId) {
+        if (!$orderId) {
+            $message = $this->__('No order selected for creating new order tickets.');
+            throw new Mage_Core_Exception($message);
+        }
+
+
+        //Checking if order exists
+        $order = Mage::getModel('sales/order');
+        /* @var $order Mage_Sales_Model_Order */
+        $order->load($orderId);
+        if (!$order->getId()) {
+            $message = $this->__('Order not found.');
+            throw new Mage_Core_Exception($message);
+        }
+        
+        return true;
     }
 
 }

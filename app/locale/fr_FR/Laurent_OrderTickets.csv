@@ -49,5 +49,6 @@
 "Tickets already exist for this order. Please add new here.","Il existe déjà des tickets pour cette commande. Ajoutez les nouveaux ici."
 "Tickets for order %s","Tickets de la commande %s"
 "Ticket type","Type de ticket"
+"Ticket has been correctly saved.","Le ticket a bien été enregistré."
 "Your message send the","Votre message envoyé le"
 "Your message was successfully recorded","Votre message a bien été enregistré"

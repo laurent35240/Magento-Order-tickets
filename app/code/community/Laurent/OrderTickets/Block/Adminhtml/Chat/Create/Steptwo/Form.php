@@ -31,28 +31,29 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_Create_Steptwo_Form extends Mage
 
         $fieldset->addField('customer_firstname', 'text', array(
             'label'     => $this->__('Customer firstname'),
-            'name'      => 'customer_firstname',
+            'name'      => 'chat[customer_firstname]',
             'required'  => true,
             'value'     => $order->getCustomerFirstname(),
         ));
         
         $fieldset->addField('customer_lastname', 'text', array(
             'label'     => $this->__('Customer lastname'),
-            'name'      => 'customer_lastname',
+            'name'      => 'chat[customer_lastname]',
             'required'  => true,
             'value'     => $order->getCustomerLastname(),
         ));
         
         $fieldset->addField('customer_email', 'text', array(
             'label'     => $this->__('Customer email'),
-            'name'      => 'customer_email',
+            'name'      => 'chat[customer_email]',
             'required'  => true,
+            'class'     => 'validate-email',
             'value'     => $order->getCustomerEmail(),
         ));
         
         $fieldset->addField('status', 'select', array(
             'label'     => $this->__('Status'),
-            'name'      => 'status',
+            'name'      => 'chat[status]',
             'required'  => true,
             'options'   => $helper->getChatStatuses(),
             'value'     => Laurent_OrderTickets_Model_Chat::STATUS_OPEN,
@@ -60,7 +61,7 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_Create_Steptwo_Form extends Mage
         
         $fieldset->addField('ticket_type', 'select', array(
             'label'     => $this->__('Ticket type'),
-            'name'      => 'ticket_type',
+            'name'      => 'ticket[type]',
             'required'  => true,
             'options'   => $helper->getTicketTypes(),
             'value'     => Laurent_OrderTickets_Model_Ticket::TYPE_REQUEST,
@@ -68,12 +69,12 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_Create_Steptwo_Form extends Mage
         
         $fieldset->addField('ticket_message', 'textarea', array(
             'label'     => $this->__('Message'),
-            'name'      => 'ticket_message',
+            'name'      => 'ticket[message]',
             'required'  => true,
         ));
         
         $fieldset->addField('order_id', 'hidden', array(
-            'name'      => 'order_id',
+            'name'      => 'chat[order_id]',
             'required'  => true,
             'value'     => $order->getId(),
         ));
