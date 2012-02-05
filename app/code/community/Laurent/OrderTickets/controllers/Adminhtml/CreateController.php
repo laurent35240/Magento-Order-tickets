@@ -18,6 +18,8 @@ class Laurent_OrderTickets_Adminhtml_CreateController extends Laurent_OrderTicke
      * Create a new Chat Action
      */
     public function indexAction() {
+        $this->_baseTitle();
+        $this->_title($this->__('Create new order tickets'));
         $this->_initAction();
         $this->renderLayout();
     }
@@ -40,6 +42,8 @@ class Laurent_OrderTickets_Adminhtml_CreateController extends Laurent_OrderTicke
             //Checking if we receive an order id
             $orderId = (int) $this->getRequest()->getParam('order_id');
             $this->_checkOrderId($orderId);
+            $order = Mage::getModel('sales/order')->load($orderId);
+            /* @var $order Mage_Sales_Model_Order */
             
             //Checking if there is already started order chat for this order
             //If chat is found we redirect then to chat edit page
@@ -55,6 +59,8 @@ class Laurent_OrderTickets_Adminhtml_CreateController extends Laurent_OrderTicke
             
             //Displaying form
             Mage::register('chat_order_id', $orderId);
+            $this->_baseTitle();
+            $this->_title($this->__('Create new order tickets for order #%s', $order->getIncrementId()));
             $this->_initAction();
             $this->renderLayout();
             

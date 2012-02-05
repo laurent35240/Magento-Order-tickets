@@ -15,6 +15,7 @@
 class Laurent_OrderTickets_Adminhtml_ChatController extends Laurent_OrderTickets_Controller_Adminhtml_Chat {
     
     public function indexAction(){
+        $this->_baseTitle();        
         $this->_initAction();
         $this->renderLayout();
     }
@@ -26,9 +27,13 @@ class Laurent_OrderTickets_Adminhtml_ChatController extends Laurent_OrderTickets
         $chatId = $this->getRequest()->getParam('chat_id');
         
         $chat = Mage::getModel('ordertickets/chat')->load($chatId);
+        /* @var $chat Laurent_OrderTickets_Model_Chat */
         
         if($chat->getId()){
             Mage::register('ordertickets_chat', $chat);
+            
+            $this->_baseTitle();
+            $this->_title($this->__('Tickets for order %s', $chat->getOrder()->getIncrementId()));
             $this->_initAction();
             $this->renderLayout();
         }
