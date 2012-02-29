@@ -22,6 +22,12 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat extends Mage_Adminhtml_Block_Wid
         $this->_headerText = $this->__('Order tickets');
         $this->_blockGroup = 'ordertickets';
         parent::__construct();
+        
+        $userAllowedToCreate = Mage::getSingleton('admin/session')->isAllowed('sales/ordertickets/create');
+        if(!$userAllowedToCreate){
+            $this->_removeButton('add');
+        }
+        
     }
     
     public function getCreateUrl()

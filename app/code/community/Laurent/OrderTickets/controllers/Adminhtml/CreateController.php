@@ -138,6 +138,15 @@ class Laurent_OrderTickets_Adminhtml_CreateController extends Laurent_OrderTicke
         
         return true;
     }
+    
+    /**
+     * Tells if user can use actions of this controller
+     * @return boolean 
+     */
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('sales/ordertickets/create');
+    }
 
 }
 
