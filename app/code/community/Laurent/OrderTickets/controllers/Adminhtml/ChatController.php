@@ -12,11 +12,11 @@
  * Description of ChatController
  *
  */
-class Laurent_OrderTickets_Adminhtml_ChatController extends Mage_Adminhtml_Controller_Action {
+class Laurent_OrderTickets_Adminhtml_ChatController extends Laurent_OrderTickets_Controller_Adminhtml_Chat {
     
     public function indexAction(){
+        $this->_baseTitle();        
         $this->_initAction();
-        $this->_addContent($this->getLayout()->createBlock('ordertickets/adminhtml_chat'));
         $this->renderLayout();
     }
     
@@ -27,12 +27,14 @@ class Laurent_OrderTickets_Adminhtml_ChatController extends Mage_Adminhtml_Contr
         $chatId = $this->getRequest()->getParam('chat_id');
         
         $chat = Mage::getModel('ordertickets/chat')->load($chatId);
+        /* @var $chat Laurent_OrderTickets_Model_Chat */
         
         if($chat->getId()){
             Mage::register('ordertickets_chat', $chat);
+            
+            $this->_baseTitle();
+            $this->_title($this->__('Tickets for order %s', $chat->getOrder()->getIncrementId()));
             $this->_initAction();
-            $this->_addContent($this->getLayout()->createBlock('ordertickets/adminhtml_chat_view'));
-            $this->_addLeft($this->getLayout()->createBlock('ordertickets/adminhtml_chat_view_tabs'));
             $this->renderLayout();
         }
         else{
@@ -120,21 +122,6 @@ class Laurent_OrderTickets_Adminhtml_ChatController extends Mage_Adminhtml_Contr
         
         $this->getResponse()->setBody($this->getLayout()->createBlock('ordertickets/adminhtml_customer_edit_tab_tickets')->toHtml());
     }
-
-        /**
-     * Initialize action
-     *
-     * @return Mage_Adminhtml_Controller_Action
-     */
-    protected function _initAction()
-    {
-        $this->loadLayout()
-            ->_setActiveMenu('sales/ordertickets')
-            ->_addBreadcrumb($this->__('Sales'), $this->__('Sales'))
-            ->_addBreadcrumb($this->__('Order tickets'), $this->__('Order tickets'));
-        return $this;
-    }
-    
 }
 
 ?>

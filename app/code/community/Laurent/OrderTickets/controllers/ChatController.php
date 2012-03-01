@@ -1,4 +1,4 @@
-<?php
+g<?php
 
 /*
  * @category   Laurent

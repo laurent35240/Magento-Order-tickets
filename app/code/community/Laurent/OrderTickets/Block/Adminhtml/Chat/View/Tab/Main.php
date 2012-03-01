@@ -12,7 +12,9 @@
  * Description of Main
  *
  */
-class Laurent_OrderTickets_Block_Adminhtml_Chat_View_Tab_Main extends Mage_Adminhtml_Block_Widget_Form {
+class Laurent_OrderTickets_Block_Adminhtml_Chat_View_Tab_Main 
+extends Mage_Adminhtml_Block_Widget_Form
+implements Mage_Adminhtml_Block_Widget_Tab_Interface {
     
     protected function _prepareForm()
     {
@@ -77,6 +79,38 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_View_Tab_Main extends Mage_Admin
         $this->setForm($form);
 
         return parent::_prepareForm();
+    }
+
+    /**
+     * Can sho tab?
+     * @return boolean 
+     */
+    public function canShowTab() {
+       return true; 
+    }
+
+    /**
+     * Tab label
+     * @return string
+     */
+    public function getTabLabel() {
+        return $this->__('Details');
+    }
+
+    /**
+     * Tab title
+     * @return string
+     */
+    public function getTabTitle() {
+        return $this->__('Details');
+    }
+
+    /**
+     * Tab is hidden?
+     * @return boolean 
+     */
+    public function isHidden() {
+        return false;
     }
     
 }

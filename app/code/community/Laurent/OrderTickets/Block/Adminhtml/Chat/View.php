@@ -22,9 +22,12 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_View extends Mage_Adminhtml_Bloc
         $this->_mode = 'view';
         parent::__construct();
         $this->_removeButton('delete');
-
     }
     
+    /**
+     * Gives Header text
+     * @return string 
+     */
     public function getHeaderText(){
         return $this->__('Tickets for order %s', $this->getChat()->getOrder()->getIncrementId());
     }

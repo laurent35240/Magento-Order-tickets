@@ -29,11 +29,26 @@ class Laurent_OrderTickets_Helper_Data extends Mage_Core_Helper_Abstract{
         return $chat;
     }
     
+    /**
+     * Get associative array of chat statuses
+     * @return array status code => status label 
+     */
     public function getChatStatuses(){
         return array(
             Laurent_OrderTickets_Model_Chat::STATUS_CLOSED         => $this->__('Closed'),
             Laurent_OrderTickets_Model_Chat::STATUS_OPEN           => $this->__('Open'),
             Laurent_OrderTickets_Model_Chat::STATUS_PENDING_ANSWER => $this->__('Pending answer')
+        );
+    }
+
+    /**
+     * Get associative array of ticket types
+     * @return array type code => type label
+     */
+    public function getTicketTypes() {
+        return array(
+            Laurent_OrderTickets_Model_Ticket::TYPE_REQUEST => $this->__('Customer request'),
+            Laurent_OrderTickets_Model_Ticket::TYPE_ANSWER  => $this->__('Store answer'),
         );
     }
 }

@@ -1,16 +1,14 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category   Laurent
+@package    Tower
+@copyright  Copyright (c) 2012 Laurent Clouet
+@license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+@author     Laurent Clouet <laurent35240@gmail.com>
+-->
+
+
 <config>
-    <menu>
-        <sales>
-            <children>
-                <ordertickets translate="title">
-                    <title>Order tickets</title>
-                    <action>ordertickets/adminhtml_chat</action>
-                    <sort_order>600</sort_order>
-                </ordertickets>
-            </children>
-        </sales>
-    </menu>
     <acl>
         <resources>
             <admin>
@@ -19,6 +17,11 @@
                         <children>
                             <ordertickets translate="title" module="ordertickets">
                                 <title>Order tickets</title>
+                                <children>
+                                    <create translate="title" module="ordertickets">
+                                        <title>Create</title>
+                                    </create>
+                                </children>
                             </ordertickets>
                         </children>
                     </sales>

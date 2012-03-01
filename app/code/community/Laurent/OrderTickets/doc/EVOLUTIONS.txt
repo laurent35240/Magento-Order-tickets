@@ -16,6 +16,7 @@ specific action
 - More straightforward relations between tickets for being able to indicate to
 which message an answer is dedicated
 
-- Possibility of edditing/deleting every message in BO
+- Possibility of editing/deleting every message in BO
 
 - Notifying customer by email about a new answer
+- Possibility for a customer to attach a file to his message

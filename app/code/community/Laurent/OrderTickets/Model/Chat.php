@@ -72,6 +72,16 @@ class Laurent_OrderTickets_Model_Chat extends Laurent_OrderTickets_Model_Abstrac
             return $this->getStatus();
         }
     }
+
+    /**
+     * Try to load a chat by a given order id
+     * @param int $orderId
+     * @return LaurentOrderTickets_Model_Chat
+     */
+    public function loadByOrderId($orderId) {
+        $orderId = (int) $orderId;
+        return $this->load($orderId, 'order_id');
+    }
 }
 
 ?>
