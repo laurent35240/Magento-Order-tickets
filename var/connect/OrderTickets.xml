@@ -1,5 +1,5 @@
 <_>
-   <form_key>RZSIfGNmmgL5Du3g</form_key>
+   <form_key>blLnLdMQ7CMzYsJS</form_key>
    <name>Order_tickets</name>
    <channel>community</channel>
    <version_ids>
@@ -9,13 +9,13 @@
    <summary>Ticketing system to order</summary>
    <description>Ticketing system to order:
  - customer can add message to orders
- - administrator can see thes messages, reply to them and change status of a chat
+ - administrator can see these messages, reply to them, change status of a chat and create new messages
  - a cron also exists to send a reminder email to administrator about new messages</description>
    <license>Academic Free License (AFL 3.0)</license>
    <license_uri>http://opensource.org/licenses/afl-3.0.php</license_uri>
-   <version>1.0.7</version>
+   <version>1.1.0</version>
    <stability>stable</stability>
-   <notes>Possibility to add &quot;order ticket&quot; permission to a role in back office</notes>
+   <notes>Possibility of creating new ticket in BO</notes>
    <authors>
       <name>
          <name>Laurent Clouet</name>
@@ -44,7 +44,7 @@
             <max/>
          </max>
          <files>
-            <files>              </files>
+            <files>                  </files>
          </files>
       </package>
       <extension>
