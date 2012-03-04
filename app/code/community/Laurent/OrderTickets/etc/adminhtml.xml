@@ -7,6 +7,17 @@
 @author     Laurent Clouet <laurent35240@gmail.com>
 -->
 <config>
+    <menu>
+        <sales>
+            <children>
+                <ordertickets translate="title">
+                    <title>Order tickets</title>
+                    <action>ordertickets/adminhtml_chat</action>
+                    <sort_order>600</sort_order>
+                </ordertickets>
+            </children>
+        </sales>
+    </menu>
     <acl>
         <resources>
             <admin>
@@ -19,6 +30,9 @@
                                     <create translate="title" module="ordertickets">
                                         <title>Create</title>
                                     </create>
+                                    <delete translate="title" module="ordertickets">
+                                        <title>Delete</title>
+                                    </delete>
                                 </children>
                             </ordertickets>
                         </children>

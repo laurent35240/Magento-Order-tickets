@@ -110,6 +110,36 @@ class Laurent_OrderTickets_Adminhtml_ChatController extends Laurent_OrderTickets
         }
     }
     
+    /**
+     * Action for deleting a chat
+     * @return bool If chat was correctly deleted
+     */
+    public function deleteAction(){
+        $session = Mage::getSingleton('adminhtml/session');
+        /* @var $session Mage_Adminhtml_Model_Session */
+        
+        $chatId = $this->getRequest()->getParam('chat_id');        
+        $chat = Mage::getModel('ordertickets/chat')->load($chatId);
+        /* @var $chat Laurent_OrderTickets_Model_Chat */
+        
+        if($chat->getId()){
+            try{
+                $chat->delete();
+            }
+            catch(Exception $e){
+                $errorMsg = $this->__('Error while deleting chat: %s', $e->getMessage());
+                $session->addError($errorMsg);
+                $this->_redirect('*/*/index');
+                return false;
+            }
+        }
+        
+        $successMsg = $this->__('Chat has been succesfully deleted');
+        $session->addSuccess($successMsg);
+        $this->_redirect('*/*/index');
+        return true;
+    }
+    
     public function customerchatsAction(){
         $customerId = (int) $this->getRequest()->getParam('id');
         $customer = Mage::getModel('customer/customer');
