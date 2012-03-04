@@ -1,22 +1,60 @@
 <?php
-/**
- * @see Laurent_OrderTickets_Block_Adminhtml_Chat_View_Tab_Tickets
+/*
+ * @category   Laurent
+ * @package    Laurent_OrderTickets
+ * @copyright  Copyright (c) 2011 Laurent Clouet
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @author     Laurent Clouet <laurent35240@gmail.com>
+ * 
+ * @var $this Laurent_OrderTickets_Block_Adminhtml_Chat_View_Tab_Tickets
  */
 ?>
-<?php foreach($this->getTickets() as $ticket): ?>
-<div>
-    <h4>
-        <?php if($ticket->isRequest()): ?>
-            <?php echo $this->__('Message from %s send the', $this->getChat()->getCustomerFirstname() . ' ' . $this->getChat()->getCustomerLastname())?>
-        <?php else: ?>
-            <?php echo $this->__('Answer send the')?>
-        <?php endif; ?>
-        <?php echo Mage::helper('core')->formatDate($ticket->getCreatedAt(), 'full', true)?>
-    </h4>
-    <p>
-        <?php echo nl2br($ticket->getMessage()) ?>
-    </p>
-</div>
+<?php foreach ($this->getTickets() as $ticket): ?>
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4>
+                <?php if ($ticket->isRequest()): ?>
+                    <?php echo $this->__('Message from %s', $this->getChat()->getCustomerFirstname() . ' ' . $this->getChat()->getCustomerLastname()) ?>
+                <?php else: ?>
+                    <?php echo $this->__('Answer') ?>
+                <?php endif; ?>
+            </h4>
+            <?php if(Mage::getSingleton('admin/session')->isAllowed('sales/ordertickets/delete')): ?>
+                <div class="tools">
+                    <a href="<?php echo $this->getUrl('*/*/deleteTicket', array('ticket_id' => $ticket->getId())) ?>" 
+                    onclick="return confirm('<?php echo $this->__('Are you sure you want to delete this ticket?') ?>');">
+                        <?php echo $this->__('Delete') ?>
+                    </a>
+                </div>
+            <?php endif; ?>
+        </div>
+        <div class="fieldset fieldset-wide">
+            <table cellspacing="0" class="form-list">
+                <tbody>
+                    <tr>
+                        <td class="label">
+                            <label>
+                                <?php echo $this->__('Send the') ?>
+                            </label>
+                        </td>
+                        <td class="value">
+                            <?php echo Mage::helper('core')->formatDate($ticket->getCreatedAt(), 'full', true) ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label>
+                                <?php echo $this->__('Message') ?>
+                            </label>
+                        </td>
+                        <td class="value">
+                            <?php echo nl2br(htmlspecialchars($ticket->getMessage())) ?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 <?php endforeach; ?>
 <div class="entry-edit">
     <div class="entry-edit-head">
@@ -25,25 +63,25 @@
     <div class="fieldset fieldset-wide">
         <table cellspacing="0" class="form-list">
             <tr>
-                <td class="label"><label for="message"><?php echo $this->__('Message')?></label></td>
+                <td class="label"><label for="message"><?php echo $this->__('Message') ?></label></td>
                 <td class="value"><textarea name="answer[message]" id="message"></textarea></td>
             </tr>
             <tr>
-                <td class="label"><label for="status"><?php echo $this->__('Status')?></label></td>
+                <td class="label"><label for="status"><?php echo $this->__('Status') ?></label></td>
                 <td class="value">
                     <select name="answer[status]" id="status">
-                        <?php foreach(Mage::helper('ordertickets')->getChatStatuses() as $statusKey => $statusLabel):?>
-                        <option value="<?php echo $statusKey?>" <?php if($statusKey == $this->getChat()->getStatus()): ?>selected="selected"<?php endif; ?>>
-                            <?php echo $statusLabel?>
-                        </option>
-                        <?php endforeach;?>
+                        <?php foreach (Mage::helper('ordertickets')->getChatStatuses() as $statusKey => $statusLabel): ?>
+                            <option value="<?php echo $statusKey ?>" <?php if ($statusKey == $this->getChat()->getStatus()): ?>selected="selected"<?php endif; ?>>
+                                <?php echo $statusLabel ?>
+                            </option>
+                        <?php endforeach; ?>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td class="label"></td>
                 <td class="value f-right">
-                    <input type="hidden" name="answer[chat_id]" value="<?php echo $this->getChat()->getId()?>" />
+                    <input type="hidden" name="answer[chat_id]" value="<?php echo $this->getChat()->getId() ?>" />
                     <button onclick="postAnswer();" class="form-button" type="submit"><span><?php echo $this->__('Send') ?></span></button>
                 </td>
             </tr>
@@ -52,10 +90,10 @@
 </div>
 
 <script type="text/javascript">
-function postAnswer()
-{
-    var form = document.getElementById("edit_form");
-    form.action = '<?php echo $this->getPostAnswerUrl()?>';
-    form.submit();
-}
+    function postAnswer()
+    {
+        var form = document.getElementById("edit_form");
+        form.action = '<?php echo $this->getPostAnswerUrl() ?>';
+        form.submit();
+    }
 </script>
