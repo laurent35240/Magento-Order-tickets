@@ -21,7 +21,11 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_View extends Mage_Adminhtml_Bloc
         $this->_blockGroup = 'ordertickets';
         $this->_mode = 'view';
         parent::__construct();
-        $this->_removeButton('delete');
+        
+        $userAllowedToDelete = Mage::getSingleton('admin/session')->isAllowed('sales/ordertickets/delete');
+        if(!$userAllowedToDelete){
+            $this->_removeButton('delete');
+        }
     }
     
     /**

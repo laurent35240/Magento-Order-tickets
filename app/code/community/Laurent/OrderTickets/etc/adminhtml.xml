@@ -30,6 +30,9 @@
                                     <create translate="title" module="ordertickets">
                                         <title>Create</title>
                                     </create>
+                                    <delete translate="title" module="ordertickets">
+                                        <title>Delete</title>
+                                    </delete>
                                 </children>
                             </ordertickets>
                         </children>
