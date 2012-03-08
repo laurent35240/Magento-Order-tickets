@@ -117,5 +117,3 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_Create_Order_Grid extends Mage_A
         return $this->getUrl('*/*/stepTwo', array('order_id' => $order->getId()));
     }
 }
-
-?>

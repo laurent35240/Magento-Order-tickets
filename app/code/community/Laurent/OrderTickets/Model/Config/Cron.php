@@ -40,5 +40,3 @@ class Laurent_OrderTickets_Model_Config_Cron extends Mage_Core_Model_Config_Data
             }
     }
 }
-
-?>

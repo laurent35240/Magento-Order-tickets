@@ -123,5 +123,3 @@ class Laurent_OrderTickets_Adminhtml_ChatController extends Laurent_OrderTickets
         $this->getResponse()->setBody($this->getLayout()->createBlock('ordertickets/adminhtml_customer_edit_tab_tickets')->toHtml());
     }
 }
-
-?>

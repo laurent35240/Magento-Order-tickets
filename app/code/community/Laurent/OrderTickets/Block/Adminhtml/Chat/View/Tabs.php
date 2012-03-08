@@ -32,5 +32,3 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_View_Tabs extends Mage_Adminhtml
         return $this->__('Chat Information');
     }
 }
-
-?>

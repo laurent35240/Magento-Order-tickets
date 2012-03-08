@@ -22,5 +22,3 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_Create_Form extends Mage_Adminht
         return parent::_prepareForm();
     }
 }
-
-?>

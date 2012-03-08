@@ -70,5 +70,3 @@ class Laurent_OrderTickets_Model_Observer {
     }
     
 }
-
-?>

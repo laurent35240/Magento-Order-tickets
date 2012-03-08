@@ -62,5 +62,3 @@ class Laurent_OrderTickets_Block_Order_Tabs extends Mage_Core_Block_Template {
         return (strstr($requestString, self::ORDER_CHAT_LINK) !== false);
     }
 }
-
-?>

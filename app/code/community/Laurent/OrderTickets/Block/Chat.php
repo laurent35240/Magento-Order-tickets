@@ -66,5 +66,3 @@ class Laurent_OrderTickets_Block_Chat extends Mage_Core_Block_Template {
     }
     
 }
-
-?>

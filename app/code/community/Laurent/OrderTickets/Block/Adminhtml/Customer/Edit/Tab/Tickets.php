@@ -123,5 +123,3 @@ class Laurent_OrderTickets_Block_Adminhtml_Customer_Edit_Tab_Tickets
         return false;
     }
 }
-
-?>

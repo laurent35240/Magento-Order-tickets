@@ -55,5 +55,3 @@ class Laurent_OrderTickets_Model_Ticket extends Laurent_OrderTickets_Model_Abstr
     }
     
 }
-
-?>

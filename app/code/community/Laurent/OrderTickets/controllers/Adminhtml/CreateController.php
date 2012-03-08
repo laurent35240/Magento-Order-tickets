@@ -149,5 +149,3 @@ class Laurent_OrderTickets_Adminhtml_CreateController extends Laurent_OrderTicke
     }
 
 }
-
-?>

@@ -34,5 +34,3 @@ class Laurent_OrderTickets_Model_Mysql4_Chat_Collection extends Mage_Core_Model_
         return $this;
     }
 }
-
-?>

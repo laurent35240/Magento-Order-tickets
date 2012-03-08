@@ -19,5 +19,3 @@ class Laurent_OrderTickets_Model_Mysql4_Ticket extends Mage_Core_Model_Mysql4_Ab
     }
     
 }
-
-?>

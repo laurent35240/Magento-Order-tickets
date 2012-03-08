@@ -81,5 +81,3 @@ class Laurent_OrderTickets_Block_Adminhtml_Order_View_Tab_Tickets
         return $this->getUrl('ordertickets/adminhtml_chat/view', array('chat_id' => $this->getChat()->getId()));
     }
 }
-
-?>

@@ -44,5 +44,3 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_Create_Steptwo extends Mage_Admi
     }
     
 }
-
-?>

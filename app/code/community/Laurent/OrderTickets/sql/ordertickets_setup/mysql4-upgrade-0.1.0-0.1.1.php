@@ -17,4 +17,3 @@ ALTER TABLE  `{$this->getTable('ordertickets_chat')}` ADD  `last_answer_date` DA
 
 $installer->endSetup();
 
-?>

@@ -47,4 +47,3 @@ $installer->run("
 ");
 
 $installer->endSetup();
-?>

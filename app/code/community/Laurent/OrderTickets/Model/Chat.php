@@ -83,5 +83,3 @@ class Laurent_OrderTickets_Model_Chat extends Laurent_OrderTickets_Model_Abstrac
         return $this->load($orderId, 'order_id');
     }
 }
-
-?>

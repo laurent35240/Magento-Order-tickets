@@ -18,5 +18,3 @@ class Laurent_OrderTickets_Model_Mysql4_Ticket_Collection extends Mage_Core_Mode
         $this->_init('ordertickets/ticket');
     }
 }
-
-?>

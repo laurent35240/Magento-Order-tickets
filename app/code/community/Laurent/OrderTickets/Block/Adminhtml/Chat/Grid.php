@@ -114,5 +114,3 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_Grid extends Mage_Adminhtml_Bloc
         return $this->getUrl('*/*/view', array('chat_id' => $row->getId()));   
     }
 }
-
-?>

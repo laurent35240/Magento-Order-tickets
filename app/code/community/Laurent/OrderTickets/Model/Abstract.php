@@ -30,5 +30,3 @@ abstract class Laurent_OrderTickets_Model_Abstract extends Mage_Core_Model_Abstr
         return $this;
     }
 }
-
-?>

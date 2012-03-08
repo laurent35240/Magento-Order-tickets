@@ -1,4 +1,4 @@
-g<?php
+<?php
 
 /*
  * @category   Laurent
@@ -122,5 +122,3 @@ class Laurent_OrderTickets_ChatController extends Mage_Core_Controller_Front_Act
     }
 
 }
-
-?>

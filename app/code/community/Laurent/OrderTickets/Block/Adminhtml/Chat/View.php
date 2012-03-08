@@ -41,5 +41,3 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_View extends Mage_Adminhtml_Bloc
     }
     
 }
-
-?>
