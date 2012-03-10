@@ -10,6 +10,7 @@ It helps then to improve communication between customers and after-sale service.
  * Administrators can change status of a chat
  * Different message can be seen in BO in a global grid, into orders and into
     customer account
+ * Administrators can create new ticket directly in BO or delete them
  * Email notification send to administrator about new tickets posted by customers
 
 ## Installation
