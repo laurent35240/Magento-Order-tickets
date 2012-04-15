@@ -24,22 +24,31 @@ class Laurent_OrderTickets_Block_Chat extends Mage_Core_Block_Template {
         return Mage::registry('current_order');
     }
     
+    /**
+     * Retrieve collection of tickets for currently viewed chat
+     * @return Laurent_OrderTickets_Model_Mysql4_Ticket_Collection
+     */
     public function getTickets(){
         $tickets = array();
         $chat = $this->getChat();
         
         if($chat){
+            /* @var $tickets Laurent_OrderTickets_Model_Mysql4_Ticket_Collection */
             $tickets = Mage::getResourceModel('ordertickets/ticket_collection')
                     ->addFieldToFilter('chat_id', $chat->getId())
                     ->load();
         }
         
-        
         return $tickets;
     }
     
+    /**
+     * Retrieve currently viewed chat
+     * @return Laurent_OrderTickets_Model_Chat
+     */
     public function getChat(){
         $order = $this->getOrder();
+        /* @var $chat Laurent_OrderTickets_Model_Chat */
         $chat = Mage::getModel('ordertickets/chat');
         
         if($order){

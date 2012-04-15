@@ -108,6 +108,9 @@
                 </args>
             </ordertickets>
         </routers>
+        <secure_url>
+            <ordertickets>/ordertickets/</ordertickets>
+        </secure_url>
         <translate>
             <modules>
                 <Laurent_OrderTickets>
