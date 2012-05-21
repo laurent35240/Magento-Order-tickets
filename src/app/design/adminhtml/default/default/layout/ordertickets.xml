@@ -16,12 +16,12 @@
             </action>
         </reference>
     </adminhtml_sales_order_view>
-    <ordertickets_adminhtml_chat_index>
+    <ordertickets_admin_chat_index>
         <reference name="content">
             <block type="ordertickets/adminhtml_chat" name="chat_grid"></block>
         </reference>
-    </ordertickets_adminhtml_chat_index>
-    <ordertickets_adminhtml_chat_view>
+    </ordertickets_admin_chat_index>
+    <ordertickets_admin_chat_view>
         <reference name="content">
             <block type="ordertickets/adminhtml_chat_view" name="chat_view"></block>
         </reference>
@@ -38,8 +38,8 @@
                 </action>
             </block>
         </reference>
-    </ordertickets_adminhtml_chat_view>
-    <ordertickets_adminhtml_create_index>
+    </ordertickets_admin_chat_view>
+    <ordertickets_admin_create_index>
         <reference name="content">
             <block type="ordertickets/adminhtml_chat_create" name="chat_create">
                 <block type="ordertickets/adminhtml_chat_create_form" template="ordertickets/chat/create/form.phtml" name="form">
@@ -49,13 +49,13 @@
                 </block>
             </block>
         </reference>
-    </ordertickets_adminhtml_create_index>
-    <ordertickets_adminhtml_create_loadordergrid>
+    </ordertickets_admin_create_index>
+    <ordertickets_admin_create_loadordergrid>
         <block type="ordertickets/adminhtml_chat_create_order_grid" name="grid" output="toHtml" />
-    </ordertickets_adminhtml_create_loadordergrid>
-    <ordertickets_adminhtml_create_steptwo>
+    </ordertickets_admin_create_loadordergrid>
+    <ordertickets_admin_create_steptwo>
         <reference name="content">
             <block type="ordertickets/adminhtml_chat_create_steptwo" name="chat_create_steptwo"></block>
         </reference>
-    </ordertickets_adminhtml_create_steptwo>
+    </ordertickets_admin_create_steptwo>
 </layout>

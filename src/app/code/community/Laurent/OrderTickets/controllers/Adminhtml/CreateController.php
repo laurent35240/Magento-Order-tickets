@@ -53,7 +53,7 @@ class Laurent_OrderTickets_Adminhtml_CreateController extends Laurent_OrderTicke
             if($orderChat->getId()){
                 $message = $this->__('Tickets already exist for this order. Please add new here.');
                 $session->addNotice($message);
-                $this->_redirect('*/adminhtml_chat/view', array('chat_id' => $orderChat->getId()));
+                $this->_redirect('*/chat/view', array('chat_id' => $orderChat->getId()));
                 return false;
             }
             
@@ -67,7 +67,7 @@ class Laurent_OrderTickets_Adminhtml_CreateController extends Laurent_OrderTicke
         } catch (Mage_Core_Exception $e) {
             $message = $this->__("Error while creating new order tickets: %s", $e->getMessage());       
             $session->addError($message);
-            $this->_redirect('*/adminhtml_chat');
+            $this->_redirect('*/chat');
         }
     }
     
@@ -104,13 +104,13 @@ class Laurent_OrderTickets_Adminhtml_CreateController extends Laurent_OrderTicke
             
             $successMessage = $this->__('Ticket has been correctly saved.');
             $session->addSuccess($successMessage);
-            $this->_redirect('*/adminhtml_chat');
+            $this->_redirect('*/chat');
             return false;
             
         } catch (Mage_Core_Exception $e) {
             $errorMesage = $this->__("Error while creating new order tickets: %s", $e->getMessage());
             $session->addError($errorMesage);
-            $this->_redirect('*/adminhtml_chat');
+            $this->_redirect('*/chat');
         }
     }
     

@@ -32,6 +32,6 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat extends Mage_Adminhtml_Block_Wid
     
     public function getCreateUrl()
     {
-        return $this->getUrl('*/adminhtml_create');
+        return $this->getUrl('*/create');
     }
 }

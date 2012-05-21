@@ -64,13 +64,13 @@
     </global>
     <admin>
         <routers>
-            <ordertickets>
+            <ordertickets_admin>
                 <use>admin</use>
                 <args>
-                    <module>Laurent_OrderTickets</module>
-                    <frontName>ordertickets</frontName>
+                    <module>Laurent_OrderTickets_Adminhtml</module>
+                    <frontName>ordertickets_admin</frontName>
                 </args>
-            </ordertickets>
+            </ordertickets_admin>
         </routers>
     </admin>
     <adminhtml>
