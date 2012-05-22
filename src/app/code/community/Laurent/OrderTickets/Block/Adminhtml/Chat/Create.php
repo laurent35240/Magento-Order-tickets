@@ -38,7 +38,7 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_Create extends Mage_Adminhtml_Bl
      * @return string
      */
     public function getBackUrl() {
-        return $this->getUrl('*/adminhtml_chat/');
+        return $this->getUrl('*/chat/');
     }
     
 }

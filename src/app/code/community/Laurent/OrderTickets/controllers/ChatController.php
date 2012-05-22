@@ -14,8 +14,13 @@
  */
 class Laurent_OrderTickets_ChatController extends Mage_Core_Controller_Front_Action {
 
+    /**
+     * View order tickets action 
+     */
     public function viewAction() {
-        $this->_loadValidOrder();
+        if (!$this->_loadValidOrder()) {
+            return;
+        }
 
         $this->loadLayout();
 
@@ -28,6 +33,18 @@ class Laurent_OrderTickets_ChatController extends Mage_Core_Controller_Front_Act
         }
 
         $this->renderLayout();
+    }
+    
+    /**
+     * Check if customer is authenticated 
+     */
+    public function preDispatch()
+    {
+        parent::preDispatch();
+
+        if (!Mage::getSingleton('customer/session')->authenticate($this)) {
+            $this->setFlag('', 'no-dispatch', true);
+        }
     }
 
     /**
@@ -117,8 +134,31 @@ class Laurent_OrderTickets_ChatController extends Mage_Core_Controller_Front_Act
 
         $order = Mage::getModel('sales/order')->load($orderId);
 
-        Mage::register('current_order', $order);
-        return true;
+        if ($this->_canViewOrder($order)) {
+            Mage::register('current_order', $order);
+            return true;
+        } else {
+            $this->_redirect('sales/order/history');
+        }
+        return false;
+    }
+    
+    /**
+     * Check order view availability
+     *
+     * @param   Mage_Sales_Model_Order $order
+     * @return  bool
+     */
+    protected function _canViewOrder($order)
+    {
+        $customerId = Mage::getSingleton('customer/session')->getCustomerId();
+        $availableStates = Mage::getSingleton('sales/order_config')->getVisibleOnFrontStates();
+        if ($order->getId() && $order->getCustomerId() && ($order->getCustomerId() == $customerId)
+            && in_array($order->getState(), $availableStates, true)
+            ) {
+            return true;
+        }
+        return false;
     }
 
 }

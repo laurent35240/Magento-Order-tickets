@@ -99,12 +99,12 @@ class Laurent_OrderTickets_Block_Adminhtml_Customer_Edit_Tab_Tickets
     
     public function getRowUrl($row)
     {
-        return $this->getUrl('ordertickets/adminhtml_chat/view', array('chat_id' => $row->getId()));   
+        return $this->getUrl('ordertickets_admin/chat/view', array('chat_id' => $row->getId()));   
     }
     
     public function getGridUrl()
     {
-        return $this->getUrl('ordertickets/adminhtml_chat/customerchats', array('_current' => true));
+        return $this->getUrl('ordertickets_admin/chat/customerchats', array('_current' => true));
     }
     
     public function getTabLabel(){
