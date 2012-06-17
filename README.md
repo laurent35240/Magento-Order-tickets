@@ -17,9 +17,10 @@ It helps then to improve communication between customers and after-sale service.
 1. Install extension through Magento downloader or with pear. Extension can be 
 found on [Magento Connect Order Tickets page][1].
 2. Refresh Cache
-3. For receiving automatically email about new tickets set correct email 
+3. If you use Magento Compilation, run compilation process through back office (System > Tools > Compilation)
+4. For receiving automatically email about new tickets set correct email 
 recipients in BO System > Configuration > Sales > Orders tickets
-4. You can also change frequency for receiving this emails by changing cron
+5. You can also change frequency for receiving this emails by changing cron
 expression at the same place.
 By default emails are send every day at 2:42 and 14:42  
 [More about cron expression][2]
