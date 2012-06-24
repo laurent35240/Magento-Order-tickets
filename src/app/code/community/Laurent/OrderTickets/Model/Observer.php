@@ -9,7 +9,7 @@
  */
 
 /**
- * Description of Observer
+ * Class used by cron
  *
  */
 class Laurent_OrderTickets_Model_Observer {
@@ -19,9 +19,9 @@ class Laurent_OrderTickets_Model_Observer {
      * Email recipients are defined in BO configuration
      * return boolean telling if everything went fine
      */
-    public function sendEmailLastRequests(){
-        
+    public function sendEmailLastRequests(){        
         try{
+            /* @var $tickets Laurent_OrderTickets_Model_Mysql4_Ticket_Collection */
             $tickets = Mage::getResourceModel('ordertickets/ticket_collection')
                     ->addFieldToFilter('type', Laurent_OrderTickets_Model_Ticket::TYPE_REQUEST)
                     ->addFieldToFilter('reported_by_cron', false)
@@ -38,13 +38,13 @@ class Laurent_OrderTickets_Model_Observer {
                     $email->addTo($recipient);
                 }
 
-                $subject = 'Derniers messages envoyés par les clients';
+                $subject = 'Last messages send by customers';
 
                 $body = '';
                 foreach($tickets as $ticket){
                     $customerFullname = $ticket->getChat()->getCustomerFirstname() . ' '. $ticket->getChat()->getCustomerLastname() . ' <' . $ticket->getChat()->getCustomerEmail() . '>';
-                    $body .= 'Message de '. $customerFullname .' envoyé le ' . Mage::helper('core')->formatDate($ticket->getCreatedAt(), 'full', ' ') ."\n";
-                    $body .= 'Commande ' . $ticket->getChat()->getOrder()->getIncrementId() . "\n";
+                    $body .= 'Message from '. $customerFullname .' send the ' . Mage::helper('core')->formatDate($ticket->getCreatedAt(), 'full', ' ') ."\n";
+                    $body .= 'Order ' . $ticket->getChat()->getOrder()->getIncrementId() . "\n";
                     $body .= $ticket->getMessage() . "\n";
                     $body .= "\n";
                     $body .= "\n";
@@ -59,7 +59,6 @@ class Laurent_OrderTickets_Model_Observer {
                     $ticket->setReportedByCron(true);
                     $ticket->save();
                 }
-
             }
         }
         catch(Exception $e){
@@ -67,6 +66,5 @@ class Laurent_OrderTickets_Model_Observer {
             return false;
         }
         return true;
-    }
-    
+    }    
 }
