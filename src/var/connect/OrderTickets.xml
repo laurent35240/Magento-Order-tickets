@@ -1,5 +1,5 @@
 <_>
-   <form_key>iDYbKJvC6YTOlDHw</form_key>
+   <form_key>NeQUNZjt0A4pQc98</form_key>
    <name>Order_tickets</name>
    <channel>community</channel>
    <version_ids>
@@ -13,10 +13,9 @@
  - a cron also exists to send a reminder email to administrator about new messages</description>
    <license>Academic Free License (AFL 3.0)</license>
    <license_uri>http://opensource.org/licenses/afl-3.0.php</license_uri>
-   <version>1.2.2</version>
+   <version>1.2.3</version>
    <stability>stable</stability>
-   <notes>Better route name for frontend and backend
-Security fix for frontend actions</notes>
+   <notes>Admin email text in english</notes>
    <authors>
       <name>
          <name>Laurent Clouet</name>
@@ -45,7 +44,7 @@ Security fix for frontend actions</notes>
             <max/>
          </max>
          <files>
-            <files>                         </files>
+            <files>                          </files>
          </files>
       </package>
       <extension>
