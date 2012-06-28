@@ -26,6 +26,8 @@ class Laurent_OrderTickets_Block_Adminhtml_Chat_View extends Mage_Adminhtml_Bloc
         if(!$userAllowedToDelete){
             $this->_removeButton('delete');
         }
+        
+        $this->setFormActionUrl($this->getUrl('*/*/save'));
     }
     
     /**
