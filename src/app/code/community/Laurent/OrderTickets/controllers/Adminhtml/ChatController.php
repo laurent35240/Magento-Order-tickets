@@ -54,7 +54,7 @@ class Laurent_OrderTickets_Adminhtml_ChatController extends Laurent_OrderTickets
             try {
                 $chatModel->save();
 
-                Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Chat was succesfully saved'));
+                Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Chat was successfully saved'));
                 $this->getResponse()->setRedirect($this->getUrl("*/*/"));
                 return true;
             } catch (Exception $e) {
@@ -128,7 +128,7 @@ class Laurent_OrderTickets_Adminhtml_ChatController extends Laurent_OrderTickets
             }
         }
 
-        $successMsg = $this->__('Chat has been succesfully deleted');
+        $successMsg = $this->__('Chat has been successfully deleted');
         $session->addSuccess($successMsg);
         $this->_redirect('*/*/index');
         return true;
@@ -165,7 +165,7 @@ class Laurent_OrderTickets_Adminhtml_ChatController extends Laurent_OrderTickets
             }
         }
 
-        $successMsg = $this->__('Ticket has been succesfully deleted');
+        $successMsg = $this->__('Ticket has been successfully deleted');
         $session->addSuccess($successMsg);
         $this->_redirectReferer();
         return true;
