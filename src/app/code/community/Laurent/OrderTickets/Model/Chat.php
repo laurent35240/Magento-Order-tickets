@@ -19,6 +19,13 @@ class Laurent_OrderTickets_Model_Chat extends Laurent_OrderTickets_Model_Abstrac
     
     protected $_order;
     protected $_tickets;
+
+    /**
+     * Prefix of model events names
+     *
+     * @var string
+     */
+    protected $_eventPrefix = 'ortickets_chat';
     
     /**
      * Initialize resource model

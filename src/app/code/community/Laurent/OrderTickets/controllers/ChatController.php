@@ -54,9 +54,11 @@ class Laurent_OrderTickets_ChatController extends Mage_Core_Controller_Front_Act
         $orderId = $this->getRequest()->getPost('order-id');
         $message = $this->getRequest()->getPost('message');
         $errorMessage = $this->__('Error while saving your message. Please try again');
+        /** @var $session Mage_Customer_Model_Session */
+        $session = Mage::getSingleton('customer/session');
 
         if (!$orderId) {
-            Mage::getSingleton('customer/session')->addError($errorMessage);
+            $session->addError($errorMessage);
             $this->_redirect('sales/order/history');
             return false;
         }
@@ -64,7 +66,7 @@ class Laurent_OrderTickets_ChatController extends Mage_Core_Controller_Front_Act
         $chat = $this->_loadChat($orderId);
 
         if (!$chat || !$chat->getId()) {
-            Mage::getSingleton('customer/session')->addError($errorMessage);
+            $session->addError($errorMessage);
             $this->_redirect('*/*/view', array('order_id' => $orderId));
             return false;
         }
@@ -72,6 +74,7 @@ class Laurent_OrderTickets_ChatController extends Mage_Core_Controller_Front_Act
         $chatId = $chat->getId();
 
         try {
+            /** @var $ticket Lauren_OrderTickets_Model_Ticket */
             $ticket = Mage::getModel('ordertickets/ticket');
             $ticket->setChatId($chatId);
             $ticket->setMessage($message);
@@ -79,17 +82,23 @@ class Laurent_OrderTickets_ChatController extends Mage_Core_Controller_Front_Act
             $ticket->save();
         } catch (Exception $e) {
             Mage::log('Error while saving a ticket: ' . $e->getMessage(), Zend_Log::ERR);
-            Mage::getSingleton('customer/session')->addError($errorMessage);
+            $session->addError($errorMessage);
             $this->_redirect('*/*/view', array('order_id' => $orderId));
             return false;
         }
         
         $successMessage = $this->__('Your message was successfully recorded');
-        Mage::getSingleton('customer/session')->addSuccess($successMessage);
+        $session->addSuccess($successMessage);
         
         $this->_redirect('*/*/view', array('order_id' => $orderId));
     }
-    
+
+    /**
+     * Load chat or create a new one if needed
+     * return the chat or false if an error occured
+     * @param $orderId
+     * @return bool|Laurent_OrderTickets_Model_Chat
+     */
     protected function _loadChat($orderId){
         $chat = Mage::helper('ordertickets')->loadChatFromOrderId($orderId);
         
@@ -97,6 +106,7 @@ class Laurent_OrderTickets_ChatController extends Mage_Core_Controller_Front_Act
             $order = Mage::getModel('sales/order')->load($orderId);
             
             try{
+                /** @var $chat Laurent_OrderTickets_Model_Chat */
                 $chat = Mage::getModel('ordertickets/chat');
                 $chat->setOrderId($orderId);
                 $chat->setStatus(Laurent_OrderTickets_Model_Chat::STATUS_OPEN);

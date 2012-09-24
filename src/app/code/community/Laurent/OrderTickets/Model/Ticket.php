@@ -15,9 +15,14 @@
 class Laurent_OrderTickets_Model_Ticket extends Laurent_OrderTickets_Model_Abstract {
     CONST TYPE_REQUEST = 'request';
     CONST TYPE_ANSWER = 'answer';
-    
-    protected $_chat;
-    
+
+    /**
+     * Prefix of model events names
+     *
+     * @var string
+     */
+    protected $_eventPrefix = 'ortickets_ticket';
+
     /**
      * Initialize resource model
      */
@@ -47,11 +52,30 @@ class Laurent_OrderTickets_Model_Ticket extends Laurent_OrderTickets_Model_Abstr
      * @return Laurent_OrderTickets_Model_Chat
      */
     public function getChat(){
-        if(!$this->_chat){
-            $this->_chat = Mage::getModel('ordertickets/chat')->load($this->getChatId());
+        if(!$this->hasData('chat')){
+            $this->setData('chat', Mage::getModel('ordertickets/chat')->load($this->getChatId()));
         }
         
-        return $this->_chat;
+        return $this->getData('chat');
+    }
+
+    /**
+     * Reopen chat if a new request was sent
+     * @return Laurent_OrderTickets_Model_Ticket
+     */
+    public function _afterSave(){
+        parent::_afterSave();
+        $chat = $this->getChat();
+        //Putting back open status if a new request was made
+        if(
+            $this->getType() == self::TYPE_REQUEST
+            && $chat->getStatus() == Laurent_OrderTickets_Model_Chat::STATUS_CLOSED
+        )
+        {
+            $chat->setStatus(Laurent_OrderTickets_Model_Chat::STATUS_OPEN);
+            $chat->save();
+        }
+        return $this;
     }
     
 }
