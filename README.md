@@ -12,6 +12,7 @@ It helps then to improve communication between customers and after-sale service.
     customer account
  * Administrators can create new ticket directly in BO or delete them
  * Email notification send to administrator about new tickets posted by customers
+ * Possibility of disabling answer for closed tickets
 
 ## Installation
 1. Install extension through Magento downloader or with pear. Extension can be 
