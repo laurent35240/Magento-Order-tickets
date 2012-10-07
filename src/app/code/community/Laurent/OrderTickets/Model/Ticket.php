@@ -9,7 +9,10 @@
  */
 
 /**
- * Description of Ticket
+ * @method string getType()
+ * @method string getCreatedAt()
+ * @method string getMessage()
+ * @method int getChatId()
  *
  */
 class Laurent_OrderTickets_Model_Ticket extends Laurent_OrderTickets_Model_Abstract {
@@ -36,7 +39,9 @@ class Laurent_OrderTickets_Model_Ticket extends Laurent_OrderTickets_Model_Abstr
      * @return string
      */
     public function getCreatedAtFormated(){
-        return Mage::helper('core')->formatDate($this->getCreatedAt(), 'medium', true);
+        /** @var $coreHelper Mage_Core_Helper_Data */
+        $coreHelper = Mage::helper('core');
+        return $coreHelper->formatDate($this->getCreatedAt(), 'medium', true);
     }
     
     /**

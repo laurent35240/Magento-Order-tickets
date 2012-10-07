@@ -20,6 +20,7 @@ $_order = $this->getOrder();
     <h3><?php echo $this->__('Order #%s - %s', $_order->getRealOrderId(), $_order->getStatusLabel()) ?></h3>
 </div>
 <?php foreach($this->getTickets() as $ticket):?>
+    <?php /** @var $ticket Laurent_OrderTickets_Model_Ticket */?>
 <div class="ticket <?php echo $ticket->getType()?>">
     <h4>
         <?php if($ticket->isRequest()) :?>
@@ -35,6 +36,7 @@ $_order = $this->getOrder();
 </div>
 <?php endforeach; ?>
 
+<?php if($this->getChat()->canReply()): ?>
 <form action="<?php echo $this->getSendTicketPostUrl() ?>" method="post" id="form-send-ticket">
     <div class="fieldset">
         <h4 class="legend"><?php echo $this->__('Add a message') ?></h4>
@@ -42,7 +44,7 @@ $_order = $this->getOrder();
             <li class="wide">
                 <label for="message" class="required"><em>*</em><?php echo $this->__('Message') ?></label>
                 <div class="input-box">
-                    <textarea name="message" title="<?php echo $this->__('Message') ?>" class="required-entry input-text" cols="60" rows="5"><?php //echo $this->getEscaped($this->getMessage()) ?></textarea>
+                    <textarea name="message" id="message" title="<?php echo $this->__('Message') ?>" class="required-entry input-text" cols="60" rows="5"><?php //echo $this->getEscaped($this->getMessage()) ?></textarea>
                 </div>
             </li>
         </ul>
@@ -57,3 +59,4 @@ $_order = $this->getOrder();
 <script type="text/javascript">
     var dataForm = new VarienForm('form-send-ticket', true);
 </script>
+<?php endif; ?>

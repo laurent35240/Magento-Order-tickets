@@ -133,6 +133,7 @@
     <default>
         <sales>
             <ordertickets>
+                <allow_reply_to_closed_ticket>1</allow_reply_to_closed_ticket>
                 <cron_expr>42 2,14 * * *</cron_expr>
                 <cron_recipients>name@domain.com</cron_recipients>
             </ordertickets>

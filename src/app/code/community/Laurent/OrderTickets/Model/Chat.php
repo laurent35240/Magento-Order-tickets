@@ -9,7 +9,11 @@
  */
 
 /**
- * Description of Chat
+ * @method string getCustomerFirstname()
+ * @method string getCustomerLastname()
+ * @method string getStatus()
+ * @method Laurent_OrderTickets_Model_Chat setStatus(string $status)
+ * @method int getOrderId()
  *
  */
 class Laurent_OrderTickets_Model_Chat extends Laurent_OrderTickets_Model_Abstract {
@@ -53,9 +57,10 @@ class Laurent_OrderTickets_Model_Chat extends Laurent_OrderTickets_Model_Abstrac
      */
     public function getTickets(){
         if(!$this->_tickets){
-            $ticketCollection = Mage::getResourceModel('ordertickets/ticket_collection')
-                    ->addFieldToFilter('chat_id', $this->getId())
-                    ->load();
+            /** @var $ticketCollection Laurent_OrderTickets_Model_Mysql4_Ticket_Collection */
+            $ticketCollection = Mage::getResourceModel('ordertickets/ticket_collection');
+            $ticketCollection->addFieldToFilter('chat_id', $this->getId());
+            $ticketCollection->load();
             
             $this->_tickets = $ticketCollection;
         }
@@ -70,7 +75,9 @@ class Laurent_OrderTickets_Model_Chat extends Laurent_OrderTickets_Model_Abstrac
      * @return string
      */
     public function getStatusLabel(){
-        $allStatuses = Mage::helper('ordertickets')->getChatStatuses();
+        /** @var $orderTicketsHelper Laurent_OrderTickets_Helper_Data */
+        $orderTicketsHelper = Mage::helper('ordertickets');
+        $allStatuses = $orderTicketsHelper->getChatStatuses();
         
         if(array_key_exists($this->getStatus(), $allStatuses)){
             return $allStatuses[$this->getStatus()];
@@ -83,10 +90,19 @@ class Laurent_OrderTickets_Model_Chat extends Laurent_OrderTickets_Model_Abstrac
     /**
      * Try to load a chat by a given order id
      * @param int $orderId
-     * @return LaurentOrderTickets_Model_Chat
+     * @return Laurent_OrderTickets_Model_Chat
      */
     public function loadByOrderId($orderId) {
         $orderId = (int) $orderId;
         return $this->load($orderId, 'order_id');
+    }
+
+    /**
+     * Somebody (user of admin) can reply to this chat
+     * @return bool
+     */
+    public function canReply(){
+        return (Mage::getStoreConfig('sales/ordertickets/allow_reply_to_closed_ticket')
+            || $this->getStatus() != self::STATUS_CLOSED);
     }
 }
