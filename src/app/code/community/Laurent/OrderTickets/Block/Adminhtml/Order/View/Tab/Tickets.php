@@ -59,7 +59,9 @@ class Laurent_OrderTickets_Block_Adminhtml_Order_View_Tab_Tickets
      */
     public function getChat(){
         if(!$this->_chat){
-            $chat = Mage::helper('ordertickets')->loadChatFromOrderId($this->getOrder()->getId());
+            /** @var $chatHelper Laurent_OrderTickets_Helper_Data */
+            $chatHelper = Mage::helper('ordertickets');
+            $chat = $chatHelper->loadChatFromOrderId($this->getOrder()->getId());
             
             if($chat && $chat->getId()){
                 $this->_chat = $chat;
@@ -79,5 +81,13 @@ class Laurent_OrderTickets_Block_Adminhtml_Order_View_Tab_Tickets
         }
         
         return $this->getUrl('ordertickets_admin/chat/view', array('chat_id' => $this->getChat()->getId()));
+    }
+
+    /**
+     * Get url fro creating ticket for currently viewed order
+     * @return string
+     */
+    public function getCreateTicketUrl(){
+        return $this->getUrl('ordertickets_admin/create/steptwo', array('order_id' => $this->getOrder()->getId()));
     }
 }

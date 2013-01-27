@@ -1,5 +1,7 @@
 <?php
 /* @var $this Laurent_OrderTickets_Block_Adminhtml_Order_View_Tab_Tickets */
+/** @var $coreHelper Mage_Core_Helper_Data */
+$coreHelper = Mage::helper('core');
 ?>
 <div class="entry-edit">
     <div class="entry-edit-head">
@@ -10,11 +12,15 @@
             <table cellspacing="0" class="form-list">
                 <tr>
                     <td class="label"><?php echo $this->__('Created at') ?></td>
-                    <td class="value"><?php echo Mage::helper('core')->formatDate($this->getChat()->getCreatedAt(), 'full', true) ?></td>
+                    <td class="value">
+                        <?php echo $coreHelper->formatDate($this->getChat()->getCreatedAt(), 'full', true) ?>
+                    </td>
                 </tr>
                 <tr>
                     <td class="label"><?php echo $this->__('Last answer date') ?></td>
-                    <td class="value"><?php echo Mage::helper('core')->formatDate($this->getChat()->getLastAnswerDate(), 'full', true) ?></td>
+                    <td class="value">
+                        <?php echo $coreHelper->formatDate($this->getChat()->getLastAnswerDate(), 'full', true) ?>
+                    </td>
                 </tr>
                 <tr>
                     <td class="label"><?php echo $this->__('Status') ?></td>
@@ -31,8 +37,7 @@
             </table>
         <?php else: ?>
             <?php echo $this->__('There is no ticket associated to this order') ?><br />
-            <button type="button" class="scalable add" 
-                    onclick="setLocation('<?php echo $this->getUrl('ordertickets/adminhtml_create/steptwo', array('order_id' => $this->getOrder()->getId()))?>')">
+            <button type="button" class="scalable add" onclick="setLocation('<?php echo $this->getCreateTicketUrl()?>')">
                 <span><?php echo $this->__('Create ticket') ?></span>
             </button>
         <?php endif; ?>

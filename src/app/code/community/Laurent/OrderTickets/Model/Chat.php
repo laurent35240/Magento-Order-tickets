@@ -14,6 +14,8 @@
  * @method string getStatus()
  * @method Laurent_OrderTickets_Model_Chat setStatus(string $status)
  * @method int getOrderId()
+ * @method string getCreatedAt()
+ * @method string getLastAnswerDate()
  *
  */
 class Laurent_OrderTickets_Model_Chat extends Laurent_OrderTickets_Model_Abstract {
