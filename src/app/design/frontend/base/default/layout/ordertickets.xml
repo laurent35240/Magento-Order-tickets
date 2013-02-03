@@ -8,21 +8,76 @@
 <layout version="0.1.0">
     <ordertickets_chat_view>
         <update handle="customer_account"/>
-        <reference name="head">
-            <action method="addCss"><stylesheet>css/ordertickets.css</stylesheet></action>
-        </reference>
-        <reference name="content">
-            <block type="ordertickets/order_tabs" name="ordertickets_order_tabs" template="ordertickets/order/tabs.phtml"></block>
-            <block type="ordertickets/chat" name="ordertickets_chat" template="ordertickets/chat.phtml"></block>
+        <reference name="my.account.wrapper">
+            <block type="sales/order_info" as="info" name="sales.order.info">
+                <block type="sales/order_info_buttons" as="buttons" name="sales.order.info.buttons" />
+                <action method="addLink" translate="label" module="sales">
+                    <name>view</name>
+                    <path>sales/order/view</path>
+                    <label>Order Information</label>
+                </action>
+                <action method="addLink" translate="label" module="sales">
+                    <name>invoice</name>
+                    <path>sales/order/invoice</path>
+                    <label>Invoices</label>
+                </action>
+                <action method="addLink" translate="label" module="sales">
+                    <name>shipment</name>
+                    <path>sales/order/shipment</path>
+                    <label>Shipments</label>
+                </action>
+                <action method="addLink" translate="label" module="sales">
+                    <name>creditmemo</name>
+                    <path>sales/order/creditmemo</path>
+                    <label>Refunds</label>
+                </action>
+                <action method="addLink" translate="label" module="ordertickets">
+                    <name>ordertickets</name>
+                    <path/>
+                    <label>Messages</label>
+                </action>
+            </block>
+            <block type="ordertickets/chat" name="ordertickets_chat" template="ordertickets/chat.phtml"/>
         </reference>
     </ordertickets_chat_view>
-    
+
     <sales_order_view>
-        <reference name="head">
-            <action method="addCss"><stylesheet>css/ordertickets.css</stylesheet></action>
-        </reference>
-        <reference name="content">
-            <block type="ordertickets/order_tabs" name="ordertickets_order_tabs" template="ordertickets/order/tabs.phtml" before="info"></block>
+        <reference name="sales.order.info">
+            <action method="addLink" translate="label" module="ordertickets">
+                <name>ordertickets</name>
+                <path>ordertickets/chat/view</path>
+                <label>Messages</label>
+            </action>
         </reference>
     </sales_order_view>
+
+    <sales_order_invoice>
+        <reference name="sales.order.info">
+            <action method="addLink" translate="label" module="ordertickets">
+                <name>ordertickets</name>
+                <path>ordertickets/chat/view</path>
+                <label>Messages</label>
+            </action>
+        </reference>
+    </sales_order_invoice>
+
+    <sales_order_shipment>
+        <reference name="sales.order.info">
+            <action method="addLink" translate="label" module="ordertickets">
+                <name>ordertickets</name>
+                <path>ordertickets/chat/view</path>
+                <label>Messages</label>
+            </action>
+        </reference>
+    </sales_order_shipment>
+
+    <sales_order_creditmemo>
+        <reference name="sales.order.info">
+            <action method="addLink" translate="label" module="ordertickets">
+                <name>ordertickets</name>
+                <path>ordertickets/chat/view</path>
+                <label>Messages</label>
+            </action>
+        </reference>
+    </sales_order_creditmemo>
 </layout>

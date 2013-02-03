@@ -7,18 +7,13 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  * @author     Laurent Clouet <laurent35240@gmail.com>
  */
-?>
-<?php
+
 /**
  * @var $this Laurent_OrderTickets_Block_Chat
  */
 
 $_order = $this->getOrder();
 ?>
-<?php echo $this->getMessagesBlock()->getGroupedHtml();?>
-<div class="page-head button-level">
-    <h3><?php echo $this->__('Order #%s - %s', $_order->getRealOrderId(), $_order->getStatusLabel()) ?></h3>
-</div>
 <?php foreach($this->getTickets() as $ticket):?>
     <?php /** @var $ticket Laurent_OrderTickets_Model_Ticket */?>
 <div class="ticket <?php echo $ticket->getType()?>">
