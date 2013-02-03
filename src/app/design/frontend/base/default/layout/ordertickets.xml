@@ -41,7 +41,7 @@
         </reference>
     </ordertickets_chat_view>
 
-    <sales_order_view>
+    <ordertickets_chat_link>
         <reference name="sales.order.info">
             <action method="addLink" translate="label" module="ordertickets">
                 <name>ordertickets</name>
@@ -49,35 +49,21 @@
                 <label>Messages</label>
             </action>
         </reference>
+    </ordertickets_chat_link>
+
+    <sales_order_view>
+        <update handle="ordertickets_chat_link"/>
     </sales_order_view>
 
     <sales_order_invoice>
-        <reference name="sales.order.info">
-            <action method="addLink" translate="label" module="ordertickets">
-                <name>ordertickets</name>
-                <path>ordertickets/chat/view</path>
-                <label>Messages</label>
-            </action>
-        </reference>
+        <update handle="ordertickets_chat_link"/>
     </sales_order_invoice>
 
     <sales_order_shipment>
-        <reference name="sales.order.info">
-            <action method="addLink" translate="label" module="ordertickets">
-                <name>ordertickets</name>
-                <path>ordertickets/chat/view</path>
-                <label>Messages</label>
-            </action>
-        </reference>
+        <update handle="ordertickets_chat_link"/>
     </sales_order_shipment>
 
     <sales_order_creditmemo>
-        <reference name="sales.order.info">
-            <action method="addLink" translate="label" module="ordertickets">
-                <name>ordertickets</name>
-                <path>ordertickets/chat/view</path>
-                <label>Messages</label>
-            </action>
-        </reference>
+        <update handle="ordertickets_chat_link"/>
     </sales_order_creditmemo>
 </layout>
