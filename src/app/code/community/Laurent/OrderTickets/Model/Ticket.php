@@ -13,6 +13,7 @@
  * @method string getCreatedAt()
  * @method string getMessage()
  * @method int getChatId()
+ * @method Laurent_OrderTickets_Model_Ticket setReportedByCron($reportedByCron)
  *
  */
 class Laurent_OrderTickets_Model_Ticket extends Laurent_OrderTickets_Model_Abstract {

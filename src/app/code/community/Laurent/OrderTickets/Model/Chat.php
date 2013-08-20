@@ -9,6 +9,7 @@
  */
 
 /**
+ * @method string getCustomerEmail()
  * @method string getCustomerFirstname()
  * @method string getCustomerLastname()
  * @method string getStatus()

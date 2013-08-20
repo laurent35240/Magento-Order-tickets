@@ -42,8 +42,11 @@ class Laurent_OrderTickets_Model_Observer {
 
                 $body = '';
                 foreach($tickets as $ticket){
+                    /** @var Laurent_OrderTickets_Model_Ticket $ticket */
+                    /** @var Mage_Core_Helper_Data $coreHelper */
+                    $coreHelper = Mage::helper('core');
                     $customerFullname = $ticket->getChat()->getCustomerFirstname() . ' '. $ticket->getChat()->getCustomerLastname() . ' <' . $ticket->getChat()->getCustomerEmail() . '>';
-                    $body .= 'Message from '. $customerFullname .' send the ' . Mage::helper('core')->formatDate($ticket->getCreatedAt(), 'full', ' ') ."\n";
+                    $body .= 'Message from '. $customerFullname .' send the ' . $coreHelper->formatDate($ticket->getCreatedAt(), 'full', ' ') ."\n";
                     $body .= 'Order ' . $ticket->getChat()->getOrder()->getIncrementId() . "\n";
                     $body .= $ticket->getMessage() . "\n";
                     $body .= "\n";
