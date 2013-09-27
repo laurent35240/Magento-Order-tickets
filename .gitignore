@@ -290,6 +290,7 @@
 /src/errors/
 /src/favicon.ico
 /src/get.php
+/src/.githookignore
 /src/.htaccess
 /src/.htaccess.sample
 /src/.idea
@@ -318,3 +319,8 @@
 /src/var/package/
 /src/var/session/
 /vendor/
+/src/.phpstorm.meta.php
+/src/app/code/community/Cm/
+/src/app/design/adminhtml/default/default/layout/tax.xml
+/src/app/etc/modules/Cm_RedisSession.xml
+/src/var/resource_config.json
