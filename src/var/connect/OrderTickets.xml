@@ -1,10 +1,9 @@
 <_>
-   <form_key>AAAYSFQIKO7x7BrT</form_key>
+   <form_key>K0urY69E4PuCm6oN</form_key>
    <name>Order_tickets</name>
    <channel>community</channel>
    <version_ids>
       <version_ids>2</version_ids>
-      <version_ids>1</version_ids>
    </version_ids>
    <summary>Ticketing system to order</summary>
    <description>Ticketing system to order:
@@ -13,9 +12,9 @@
  - a cron also exists to send a reminder email to administrator about new messages</description>
    <license>Academic Free License (AFL 3.0)</license>
    <license_uri>http://opensource.org/licenses/afl-3.0.php</license_uri>
-   <version>1.3.2</version>
+   <version>1.3.3</version>
    <stability>stable</stability>
-   <notes>Messages view in front office changed in a more &quot;Magento&quot; style</notes>
+   <notes>Support of Magento 1.8</notes>
    <authors>
       <name>
          <name>Laurent Clouet</name>
@@ -44,7 +43,7 @@
             <max/>
          </max>
          <files>
-            <files>                              </files>
+            <files>                               </files>
          </files>
       </package>
       <extension>
