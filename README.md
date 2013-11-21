@@ -29,9 +29,8 @@ By default emails are send every day at 2:42 and 14:42
 ## Compatibiity
 This extension is compatible with:
 
- * Magento CE 1.4, 1.5, 1.6 and 1.7
- * Magento PE 1.9, 1.10, 1.11 and 1.12
- * Magento EE 1.9, 1.10, 1.11 and 1.12
+ * Magento CE 1.6, 1.7 and 1.8
+ * Magento EE 1.11, 1.12 and 1.13
 
 ## Locales
 Extension available in:
