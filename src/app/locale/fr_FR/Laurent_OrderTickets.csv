@@ -55,6 +55,7 @@
 "There is no data to save.","Il n'y a aucune donnée à sauvegarder."
 "There is no ticket associated to this order","Il n'y a pas de ticket associé à cette commande"
 "This chat does not exist","Cette discussion n'existe pas"
+"Tickets","Tickets"
 "Tickets already exist for this order. Please add new here.","Il existe déjà des tickets pour cette commande. Ajoutez les nouveaux ici."
 "Tickets for order %s","Tickets de la commande %s"
 "Ticket has been successfully deleted","Le ticket a bien été supprimé"

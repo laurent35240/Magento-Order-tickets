@@ -17,7 +17,7 @@ extends Mage_Adminhtml_Block_Template
 implements Mage_Adminhtml_Block_Widget_Tab_Interface {
     
     /**
-     * Give collection of tickets for currenty seen chat
+     * Give collection of tickets for currently seen chat
      * @return Mage_Adminhtml_Block_Widget
      */
     public function getTickets(){

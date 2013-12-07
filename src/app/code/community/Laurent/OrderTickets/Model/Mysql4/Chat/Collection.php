@@ -33,4 +33,12 @@ class Laurent_OrderTickets_Model_Mysql4_Chat_Collection extends Mage_Core_Model_
         );
         return $this;
     }
+
+    public function joinLastTicket()
+    {
+        $this->_select->joinLeft(
+            array('last_ticket_table' => $this->getTable('ordertickets/ticket')),
+            'main_table.id = last_ticket_table.chat_id'
+        );
+    }
 }
