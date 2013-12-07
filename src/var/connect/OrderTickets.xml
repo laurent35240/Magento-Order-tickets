@@ -1,5 +1,5 @@
 <_>
-   <form_key>K0urY69E4PuCm6oN</form_key>
+   <form_key>XCbmpf8bpqnoYNKB</form_key>
    <name>Order_tickets</name>
    <channel>community</channel>
    <version_ids>
@@ -12,9 +12,9 @@
  - a cron also exists to send a reminder email to administrator about new messages</description>
    <license>Academic Free License (AFL 3.0)</license>
    <license_uri>http://opensource.org/licenses/afl-3.0.php</license_uri>
-   <version>1.3.3</version>
+   <version>1.3.4</version>
    <stability>stable</stability>
-   <notes>Support of Magento 1.8</notes>
+   <notes>Spanish translation added</notes>
    <authors>
       <name>
          <name>Laurent Clouet</name>
@@ -43,7 +43,7 @@
             <max/>
          </max>
          <files>
-            <files>                               </files>
+            <files>                                </files>
          </files>
       </package>
       <extension>
@@ -68,6 +68,8 @@
          <target>magedesign</target>
          <target>mageetc</target>
          <target>magelocale</target>
+         <target>magelocale</target>
+         <target>magelocale</target>
       </target>
       <path>
          <path/>
@@ -78,6 +80,8 @@
          <path>frontend/base/default/template/ordertickets</path>
          <path>modules/Laurent_OrderTickets.xml</path>
          <path>fr_FR/Laurent_OrderTickets.csv</path>
+         <path>en_US/Laurent_OrderTickets.csv</path>
+         <path>es_ES/Laurent_OrderTickets.csv</path>
       </path>
       <type>
          <type>file</type>
@@ -86,6 +90,8 @@
          <type>dir</type>
          <type>file</type>
          <type>dir</type>
+         <type>file</type>
+         <type>file</type>
          <type>file</type>
          <type>file</type>
       </type>
@@ -98,8 +104,12 @@
          <include/>
          <include/>
          <include/>
+         <include/>
+         <include/>
       </include>
       <ignore>
+         <ignore/>
+         <ignore/>
          <ignore/>
          <ignore/>
          <ignore/>
