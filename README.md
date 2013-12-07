@@ -37,6 +37,7 @@ Extension available in:
 
  * English
  * French
+ * Spanish
 
 ## Bug Reports
 If you find a bug, [you can create a ticket][3].
